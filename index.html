@@ -25,8 +25,6 @@
     color:var(--white);
     overflow-x:hidden;
   }
-
-  /* BG */
   .bg{
     position:fixed;inset:0;z-index:0;
     background:radial-gradient(ellipse 80% 60% at 90% 10%,rgba(201,168,76,0.10) 0%,transparent 60%),
@@ -39,16 +37,12 @@
                      linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);
     background-size:48px 48px;
   }
-
-  /* WRAPPER */
   .wrapper{
     position:relative;z-index:1;
     min-height:100vh;
     display:flex;flex-direction:column;align-items:center;
     padding:0 16px 60px;
   }
-
-  /* TOP BAR */
   .topbar{
     width:100%;max-width:520px;
     display:flex;align-items:center;justify-content:space-between;
@@ -68,8 +62,6 @@
     border-radius:20px;padding:5px 13px;
     font-size:8.5px;font-weight:600;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;
   }
-
-  /* PROGRESS */
   .progress-wrap{width:100%;max-width:520px;margin-bottom:28px;}
   .progress-labels{display:flex;justify-content:space-between;margin-bottom:8px;}
   .progress-labels span{font-size:10px;font-weight:500;color:var(--white-dim);letter-spacing:0.08em;}
@@ -81,8 +73,6 @@
     height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));
     border-radius:99px;transition:width 0.5s cubic-bezier(.4,0,.2,1);
   }
-
-  /* CARD */
   .card{
     width:100%;max-width:520px;
     background:rgba(255,255,255,0.03);
@@ -100,11 +90,7 @@
     from{opacity:0;transform:translateY(22px);}
     to{opacity:1;transform:translateY(0);}
   }
-
-  /* QUESTION */
-  .q-eyebrow{
-    display:flex;align-items:center;gap:10px;margin-bottom:14px;
-  }
+  .q-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
   .q-eyebrow-line{width:24px;height:1.5px;background:var(--gold);}
   .q-eyebrow span{font-size:9px;font-weight:600;color:var(--gold);letter-spacing:0.22em;text-transform:uppercase;}
   .q-text{
@@ -112,8 +98,6 @@
     font-size:26px;font-weight:600;line-height:1.2;
     color:var(--white);margin-bottom:24px;
   }
-
-  /* OPTIONS */
   .options{display:flex;flex-direction:column;gap:10px;}
   .opt{
     display:flex;align-items:center;gap:14px;
@@ -125,30 +109,16 @@
     font-size:13px;font-weight:400;color:var(--white-dim);
     text-align:left;width:100%;
   }
-  .opt:hover{
-    background:rgba(201,168,76,0.08);
-    border-color:rgba(201,168,76,0.35);
-    color:var(--white);
-  }
-  .opt.selected{
-    background:rgba(201,168,76,0.12);
-    border-color:var(--gold);
-    color:var(--white);
-  }
+  .opt:hover{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.35);color:var(--white);}
+  .opt.selected{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--white);}
   .opt-dot{
     width:18px;height:18px;border-radius:50%;
     border:1.5px solid rgba(201,168,76,0.4);
     flex-shrink:0;display:flex;align-items:center;justify-content:center;
     transition:all 0.22s ease;
   }
-  .opt.selected .opt-dot{
-    background:var(--gold);border-color:var(--gold);
-  }
-  .opt.selected .opt-dot::after{
-    content:'';width:6px;height:6px;border-radius:50%;background:var(--navy);
-  }
-
-  /* NAV BUTTONS */
+  .opt.selected .opt-dot{background:var(--gold);border-color:var(--gold);}
+  .opt.selected .opt-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--navy);}
   .nav-row{display:flex;gap:12px;margin-top:24px;}
   .btn-back{
     flex:0 0 auto;padding:14px 20px;
@@ -166,17 +136,10 @@
     color:var(--navy);letter-spacing:0.14em;text-transform:uppercase;
     cursor:pointer;transition:all 0.2s ease;
     box-shadow:0 6px 24px rgba(201,168,76,0.3);
-    position:relative;overflow:hidden;
   }
   .btn-next:hover{box-shadow:0 8px 32px rgba(201,168,76,0.45);transform:translateY(-1px);}
   .btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
-
-  /* FORM */
-  .form-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:28px;font-weight:600;line-height:1.2;
-    color:var(--white);margin-bottom:6px;
-  }
+  .form-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.2;color:var(--white);margin-bottom:6px;}
   .form-sub{font-size:12px;color:var(--white-dim);line-height:1.6;margin-bottom:24px;}
   .form-grid{display:flex;flex-direction:column;gap:12px;}
   .form-row{display:flex;gap:12px;}
@@ -187,7 +150,7 @@
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.1);
     border-radius:10px;
-    font-family:'Montserrat',sans-serif;font-size:13px;font-weight:400;
+    font-family:'Montserrat',sans-serif;font-size:13px;
     color:var(--white);outline:none;
     transition:border-color 0.2s ease;
     -webkit-appearance:none;
@@ -195,7 +158,6 @@
   .field input::placeholder{color:rgba(248,245,239,0.3);}
   .field input:focus,.field select:focus{border-color:var(--gold);}
   .field select option{background:#0F2044;color:var(--white);}
-
   .btn-submit{
     width:100%;padding:17px 0;margin-top:8px;
     background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C);
@@ -206,12 +168,7 @@
     transition:all 0.2s ease;
   }
   .btn-submit:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(201,168,76,0.45);}
-  .disclaimer{
-    text-align:center;margin-top:10px;
-    font-size:9px;color:rgba(248,245,239,0.3);letter-spacing:0.06em;line-height:1.6;
-  }
-
-  /* THANK YOU */
+  .disclaimer{text-align:center;margin-top:10px;font-size:9px;color:rgba(248,245,239,0.3);letter-spacing:0.06em;line-height:1.6;}
   .ty-wrap{text-align:center;padding:20px 0;}
   .ty-icon{
     width:70px;height:70px;border-radius:50%;
@@ -219,10 +176,7 @@
     display:flex;align-items:center;justify-content:center;
     margin:0 auto 20px;font-size:30px;
   }
-  .ty-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:32px;font-weight:600;color:var(--white);margin-bottom:12px;
-  }
+  .ty-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--white);margin-bottom:12px;}
   .ty-sub{font-size:13px;color:var(--white-dim);line-height:1.7;max-width:360px;margin:0 auto 28px;}
   .ty-steps{display:flex;flex-direction:column;gap:12px;text-align:left;}
   .ty-step{
@@ -239,8 +193,6 @@
   }
   .ty-step-text b{display:block;font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;}
   .ty-step-text span{font-size:11px;color:var(--white-dim);line-height:1.5;}
-
-  /* FOOTER */
   .footer{
     width:100%;max-width:520px;
     display:flex;align-items:center;justify-content:center;gap:8px;
@@ -248,30 +200,20 @@
   }
   .footer span{font-size:9px;color:rgba(248,245,239,0.25);letter-spacing:0.08em;}
   .footer-dot{width:3px;height:3px;border-radius:50%;background:rgba(201,168,76,0.3);}
-
-  /* HIDDEN */
   .hidden{display:none!important;}
 </style>
 </head>
 <body>
 <div class="bg"></div>
 <div class="bg-grid"></div>
-
 <div class="wrapper">
-
-  <!-- TOP BAR -->
   <div class="topbar">
     <div class="logo">
       <div class="logo-box"><span>B</span></div>
-      <div class="logo-words">
-        <b>Bohorquez</b>
-        <small>Advisory</small>
-      </div>
+      <div class="logo-words"><b>Bohorquez</b><small>Advisory</small></div>
     </div>
     <div class="free-badge">Free · 2 Min</div>
   </div>
-
-  <!-- PROGRESS -->
   <div class="progress-wrap" id="progressWrap">
     <div class="progress-labels">
       <span>Your Financial Profile</span>
@@ -281,11 +223,7 @@
       <div class="progress-fill" id="progressFill" style="width:12.5%"></div>
     </div>
   </div>
-
-  <!-- QUIZ CARD -->
   <div class="card" id="quizCard">
-
-    <!-- Q1 -->
     <div class="q-wrap" id="q1">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 1</span></div>
       <div class="q-text">Where is most of your money right now?</div>
@@ -295,12 +233,8 @@
         <button class="opt" onclick="selectOpt(this,'q1')"><div class="opt-dot"></div>Stocks / Crypto</button>
         <button class="opt" onclick="selectOpt(this,'q1')"><div class="opt-dot"></div>Honestly, I'm not sure</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-next" id="next1" onclick="goNext(2)" disabled>Continue →</button>
-      </div>
+      <div class="nav-row"><button class="btn-next" id="next1" onclick="goNext(2)" disabled>Continue →</button></div>
     </div>
-
-    <!-- Q2 -->
     <div class="q-wrap hidden" id="q2">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 2</span></div>
       <div class="q-text">What's your #1 financial goal right now?</div>
@@ -310,13 +244,8 @@
         <button class="opt" onclick="selectOpt(this,'q2')"><div class="opt-dot"></div>Build tax-free wealth</button>
         <button class="opt" onclick="selectOpt(this,'q2')"><div class="opt-dot"></div>Get out of debt first</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-back" onclick="goBack(1)">← Back</button>
-        <button class="btn-next" id="next2" onclick="goNext(3)" disabled>Continue →</button>
-      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(1)">← Back</button><button class="btn-next" id="next2" onclick="goNext(3)" disabled>Continue →</button></div>
     </div>
-
-    <!-- Q3 -->
     <div class="q-wrap hidden" id="q3">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 3</span></div>
       <div class="q-text">Are you married or in a relationship?</div>
@@ -326,13 +255,8 @@
         <button class="opt" onclick="selectOpt(this,'q3')"><div class="opt-dot"></div>Married</button>
         <button class="opt" onclick="selectOpt(this,'q3')"><div class="opt-dot"></div>Divorced / Separated</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-back" onclick="goBack(2)">← Back</button>
-        <button class="btn-next" id="next3" onclick="goNext(4)" disabled>Continue →</button>
-      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(2)">← Back</button><button class="btn-next" id="next3" onclick="goNext(4)" disabled>Continue →</button></div>
     </div>
-
-    <!-- Q4 -->
     <div class="q-wrap hidden" id="q4">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 4</span></div>
       <div class="q-text">Do you have any children?</div>
@@ -342,13 +266,8 @@
         <button class="opt" onclick="selectOpt(this,'q4')"><div class="opt-dot"></div>3 or more kids</button>
         <button class="opt" onclick="selectOpt(this,'q4')"><div class="opt-dot"></div>Expecting / planning soon</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-back" onclick="goBack(3)">← Back</button>
-        <button class="btn-next" id="next4" onclick="goNext(5)" disabled>Continue →</button>
-      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(3)">← Back</button><button class="btn-next" id="next4" onclick="goNext(5)" disabled>Continue →</button></div>
     </div>
-
-    <!-- Q5 -->
     <div class="q-wrap hidden" id="q5">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 5</span></div>
       <div class="q-text">Do you have a mortgage or are you renting?</div>
@@ -358,13 +277,8 @@
         <button class="opt" onclick="selectOpt(this,'q5')"><div class="opt-dot"></div>Neither / Live with family</button>
         <button class="opt" onclick="selectOpt(this,'q5')"><div class="opt-dot"></div>Planning to buy soon</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-back" onclick="goBack(4)">← Back</button>
-        <button class="btn-next" id="next5" onclick="goNext(6)" disabled>Continue →</button>
-      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(4)">← Back</button><button class="btn-next" id="next5" onclick="goNext(6)" disabled>Continue →</button></div>
     </div>
-
-    <!-- Q6 -->
     <div class="q-wrap hidden" id="q6">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 6</span></div>
       <div class="q-text">If something happened to you tomorrow, who depends on you financially?</div>
@@ -374,13 +288,8 @@
         <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>My parents or family</button>
         <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>No one depends on me yet</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-back" onclick="goBack(5)">← Back</button>
-        <button class="btn-next" id="next6" onclick="goNext(7)" disabled>Continue →</button>
-      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(5)">← Back</button><button class="btn-next" id="next6" onclick="goNext(7)" disabled>Continue →</button></div>
     </div>
-
-    <!-- Q7 -->
     <div class="q-wrap hidden" id="q7">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 7</span></div>
       <div class="q-text">Do you currently have life insurance?</div>
@@ -390,13 +299,8 @@
         <button class="opt" onclick="selectOpt(this,'q7')"><div class="opt-dot"></div>Not sure what I have</button>
         <button class="opt" onclick="selectOpt(this,'q7')"><div class="opt-dot"></div>Had it but cancelled</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-back" onclick="goBack(6)">← Back</button>
-        <button class="btn-next" id="next7" onclick="goNext(8)" disabled>Continue →</button>
-      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(6)">← Back</button><button class="btn-next" id="next7" onclick="goNext(8)" disabled>Continue →</button></div>
     </div>
-
-    <!-- Q8 -->
     <div class="q-wrap hidden" id="q8">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 8</span></div>
       <div class="q-text">How much could you set aside monthly toward your financial future?</div>
@@ -406,47 +310,23 @@
         <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$300 – $500 / month</button>
         <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$500+ / month</button>
       </div>
-      <div class="nav-row">
-        <button class="btn-back" onclick="goBack(7)">← Back</button>
-        <button class="btn-next" id="next8" onclick="showForm()" disabled>See My Results →</button>
-      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(7)">← Back</button><button class="btn-next" id="next8" onclick="showForm()" disabled>See My Results →</button></div>
     </div>
-
-  </div><!-- /card -->
-
-  <!-- LEAD FORM CARD -->
+  </div>
   <div class="card hidden" id="formCard">
     <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Almost Done</span></div>
     <div class="form-title">Get Your Free<br><em>Financial Strategy</em></div>
     <p class="form-sub">Enter your info below and a licensed advisor from Bohorquez Advisory will reach out with a personalized plan — no obligation.</p>
     <div class="form-grid">
       <div class="form-row">
-        <div class="field">
-          <label>First Name</label>
-          <input type="text" id="fname" placeholder="First Name" />
-        </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input type="text" id="lname" placeholder="Last Name" />
-        </div>
+        <div class="field"><label>First Name</label><input type="text" id="fname" placeholder="First Name"/></div>
+        <div class="field"><label>Last Name</label><input type="text" id="lname" placeholder="Last Name"/></div>
       </div>
-      <div class="field">
-        <label>Email Address</label>
-        <input type="email" id="email" placeholder="you@email.com" />
-      </div>
-      <div class="field">
-        <label>Phone Number</label>
-        <input type="tel" id="phone" placeholder="(305) 000-0000" />
-      </div>
+      <div class="field"><label>Email Address</label><input type="email" id="email" placeholder="you@email.com"/></div>
+      <div class="field"><label>Phone Number</label><input type="tel" id="phone" placeholder="(305) 000-0000"/></div>
       <div class="form-row">
-        <div class="field">
-          <label>Age</label>
-          <input type="number" id="age" placeholder="28" min="18" max="80"/>
-        </div>
-        <div class="field">
-          <label>City</label>
-          <input type="text" id="city" placeholder="Miami" />
-        </div>
+        <div class="field"><label>Age</label><input type="number" id="age" placeholder="28" min="18" max="80"/></div>
+        <div class="field"><label>City</label><input type="text" id="city" placeholder="Miami"/></div>
       </div>
       <div class="field">
         <label>State</label>
@@ -471,40 +351,18 @@
       <p class="disclaimer">By submitting, you agree to be contacted by a licensed advisor. Your info is private and never sold.</p>
     </div>
   </div>
-
-  <!-- THANK YOU CARD -->
   <div class="card hidden" id="tyCard">
     <div class="ty-wrap">
       <div class="ty-icon">✓</div>
       <div class="ty-title">You're All Set,<br><em id="tyName">Friend</em>!</div>
       <p class="ty-sub">Your financial profile has been received. A licensed advisor from Bohorquez Advisory will reach out within 24 hours with a strategy built around your answers.</p>
       <div class="ty-steps">
-        <div class="ty-step">
-          <div class="ty-step-num">1</div>
-          <div class="ty-step-text">
-            <b>Check Your Phone</b>
-            <span>Expect a call or text from us within 24 hours.</span>
-          </div>
-        </div>
-        <div class="ty-step">
-          <div class="ty-step-num">2</div>
-          <div class="ty-step-text">
-            <b>Free Strategy Session</b>
-            <span>We'll walk you through options tailored to your profile — zero pressure.</span>
-          </div>
-        </div>
-        <div class="ty-step">
-          <div class="ty-step-num">3</div>
-          <div class="ty-step-text">
-            <b>Your Plan, Your Timeline</b>
-            <span>No commitment. Just clarity on where your money should be going.</span>
-          </div>
-        </div>
+        <div class="ty-step"><div class="ty-step-num">1</div><div class="ty-step-text"><b>Check Your Phone</b><span>Expect a call or text from us within 24 hours.</span></div></div>
+        <div class="ty-step"><div class="ty-step-num">2</div><div class="ty-step-text"><b>Free Strategy Session</b><span>We'll walk you through options tailored to your profile — zero pressure.</span></div></div>
+        <div class="ty-step"><div class="ty-step-num">3</div><div class="ty-step-text"><b>Your Plan, Your Timeline</b><span>No commitment. Just clarity on where your money should be going.</span></div></div>
       </div>
     </div>
   </div>
-
-  <!-- FOOTER -->
   <div class="footer">
     <span>bohorquezadvisory.com</span>
     <div class="footer-dot"></div>
@@ -512,13 +370,10 @@
     <div class="footer-dot"></div>
     <span>© 2025 Bohorquez Advisory</span>
   </div>
-
-</div><!-- /wrapper -->
-
+</div>
 <script>
   var answers = {};
   var currentQ = 1;
-
   function selectOpt(el, qid) {
     var opts = el.parentElement.querySelectorAll('.opt');
     opts.forEach(function(o){ o.classList.remove('selected'); });
@@ -527,37 +382,22 @@
     var nextBtn = document.getElementById('next' + qid.replace('q',''));
     if(nextBtn) nextBtn.disabled = false;
   }
-
   function goNext(n) {
     var prev = document.getElementById('q' + (n-1));
     var next = document.getElementById('q' + n);
     if(prev) prev.classList.add('hidden');
-    if(next) {
-      next.classList.remove('hidden');
-      currentQ = n;
-      updateProgress(n);
-      resetCard();
-    }
+    if(next) { next.classList.remove('hidden'); currentQ = n; updateProgress(n); resetCard(); }
   }
-
   function goBack(n) {
     var curr = document.getElementById('q' + (n+1));
     var prev = document.getElementById('q' + n);
     if(curr) curr.classList.add('hidden');
-    if(prev) {
-      prev.classList.remove('hidden');
-      currentQ = n;
-      updateProgress(n);
-      resetCard();
-    }
+    if(prev) { prev.classList.remove('hidden'); currentQ = n; updateProgress(n); resetCard(); }
   }
-
   function updateProgress(n) {
-    var pct = (n / 8) * 100;
-    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressFill').style.width = (n/8*100) + '%';
     document.getElementById('progressLabel').textContent = n + ' of 8';
   }
-
   function showForm() {
     document.getElementById('quizCard').classList.add('hidden');
     document.getElementById('progressWrap').classList.add('hidden');
@@ -565,7 +405,6 @@
     resetCard();
     window.scrollTo({top:0,behavior:'smooth'});
   }
-
   function submitForm() {
     var fname = document.getElementById('fname').value.trim();
     var lname = document.getElementById('lname').value.trim();
@@ -574,38 +413,30 @@
     var age   = document.getElementById('age').value.trim();
     var city  = document.getElementById('city').value.trim();
     var state = document.getElementById('state').value;
-
     if(!fname||!lname||!email||!phone||!age||!city||!state){
       alert('Please fill out all fields to get your free strategy.');
       return;
     }
-
-    // Log lead data to console (replace with your backend/webhook later)
-    console.log('LEAD:', {
-      name: fname + ' ' + lname,
-      email: email,
-      phone: phone,
-      age: age,
-      city: city,
-      state: state,
-      answers: answers
-    });
-
+    var leadData = {
+      fname:fname, lname:lname, email:email, phone:phone,
+      age:age, city:city, state:state,
+      q1:answers.q1||'', q2:answers.q2||'', q3:answers.q3||'', q4:answers.q4||'',
+      q5:answers.q5||'', q6:answers.q6||'', q7:answers.q7||'', q8:answers.q8||''
+    };
+    fetch("https://script.google.com/macros/s/AKfycbzMCIdwhWHdgKgB7QzCIKk8picAHX8-8fc4lv4b0rjRCoB1__NI0TiXTQKvyZbft5Rh2w/exec", {
+      method:"POST", mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(leadData)
+    }).catch(function(err){ console.log('Sheet error:',err); });
     document.getElementById('formCard').classList.add('hidden');
     document.getElementById('tyCard').classList.remove('hidden');
     document.getElementById('tyName').textContent = fname;
     resetCard();
     window.scrollTo({top:0,behavior:'smooth'});
   }
-
   function resetCard() {
-    // Re-trigger fade animation
     var cards = document.querySelectorAll('.card:not(.hidden)');
-    cards.forEach(function(c){
-      c.style.animation = 'none';
-      c.offsetHeight; // reflow
-      c.style.animation = '';
-    });
+    cards.forEach(function(c){ c.style.animation='none'; c.offsetHeight; c.style.animation=''; });
   }
 </script>
 </body>
