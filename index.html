@@ -2,504 +2,611 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=430, initial-scale=1.0">
-<title>Bohorquez Advisory – Story Ad</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bohorquez Advisory – Financial Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --navy: #0A1628;
-    --navy-mid: #0F2044;
-    --navy-light: #162B55;
-    --gold: #C9A84C;
-    --gold-light: #E8C96A;
-    --gold-dim: #7A6030;
-    --white: #F8F5EF;
-    --white-dim: rgba(248,245,239,0.65);
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0A1628;
+    --navy-mid:#0F2044;
+    --navy-light:#162B55;
+    --gold:#C9A84C;
+    --gold-light:#E8C96A;
+    --gold-dim:rgba(201,168,76,0.15);
+    --white:#F8F5EF;
+    --white-dim:rgba(248,245,239,0.65);
+    --white-faint:rgba(248,245,239,0.08);
+  }
+  html,body{
+    min-height:100vh;
+    background:var(--navy);
+    font-family:'Montserrat',sans-serif;
+    color:var(--white);
+    overflow-x:hidden;
   }
 
-  html, body {
-    width: 430px;
-    height: 932px;
-    overflow: hidden;
-    background: var(--navy);
-    font-family: 'Montserrat', sans-serif;
+  /* BG */
+  .bg{
+    position:fixed;inset:0;z-index:0;
+    background:radial-gradient(ellipse 80% 60% at 90% 10%,rgba(201,168,76,0.10) 0%,transparent 60%),
+               radial-gradient(ellipse 60% 50% at 5% 90%,rgba(201,168,76,0.07) 0%,transparent 55%),
+               linear-gradient(160deg,#0F2044 0%,#0A1628 50%,#060E1A 100%);
+  }
+  .bg-grid{
+    position:fixed;inset:0;z-index:0;
+    background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);
+    background-size:48px 48px;
   }
 
-  .ad-frame {
-    width: 430px;
-    height: 932px;
-    position: relative;
-    background: var(--navy);
-    overflow: hidden;
+  /* WRAPPER */
+  .wrapper{
+    position:relative;z-index:1;
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;
+    padding:0 16px 60px;
   }
 
-  /* === BACKGROUND LAYERS === */
-  .bg-gradient {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 55% at 80% 15%, rgba(201,168,76,0.13) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 50% at 10% 85%, rgba(201,168,76,0.08) 0%, transparent 60%),
-      linear-gradient(165deg, #0F2044 0%, #0A1628 45%, #060E1A 100%);
+  /* TOP BAR */
+  .topbar{
+    width:100%;max-width:520px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 0 24px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-box{
+    width:36px;height:36px;border:1.5px solid var(--gold);border-radius:7px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .logo-box span{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);}
+  .logo-words{display:flex;flex-direction:column;line-height:1.15;}
+  .logo-words b{font-size:11px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--white);}
+  .logo-words small{font-size:8px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+  .free-badge{
+    background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);
+    border-radius:20px;padding:5px 13px;
+    font-size:8.5px;font-weight:600;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;
   }
 
-  .grid-lines {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
+  /* PROGRESS */
+  .progress-wrap{width:100%;max-width:520px;margin-bottom:28px;}
+  .progress-labels{display:flex;justify-content:space-between;margin-bottom:8px;}
+  .progress-labels span{font-size:10px;font-weight:500;color:var(--white-dim);letter-spacing:0.08em;}
+  .progress-labels b{font-size:10px;font-weight:600;color:var(--gold);}
+  .progress-track{
+    width:100%;height:3px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));
+    border-radius:99px;transition:width 0.5s cubic-bezier(.4,0,.2,1);
   }
 
-  .gold-arc {
-    position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 460px;
-    height: 460px;
-    border-radius: 50%;
-    border: 1px solid rgba(201,168,76,0.18);
-    animation: pulse-arc 4s ease-in-out infinite;
+  /* CARD */
+  .card{
+    width:100%;max-width:520px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(201,168,76,0.18);
+    border-radius:20px;padding:32px 28px;
+    backdrop-filter:blur(10px);
+    position:relative;overflow:hidden;
+    animation:fadeUp 0.45s cubic-bezier(.4,0,.2,1) both;
   }
-  .gold-arc:nth-child(2) {
-    width: 340px; height: 340px;
-    top: -60px; right: -60px;
-    border-color: rgba(201,168,76,0.10);
-    animation-delay: 1s;
+  .card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
   }
-  .gold-arc:nth-child(3) {
-    width: 220px; height: 220px;
-    top: 0px; right: 0px;
-    border-color: rgba(201,168,76,0.22);
-    animation-delay: 2s;
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(22px);}
+    to{opacity:1;transform:translateY(0);}
   }
 
-  @keyframes pulse-arc {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.02); }
+  /* QUESTION */
+  .q-eyebrow{
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  }
+  .q-eyebrow-line{width:24px;height:1.5px;background:var(--gold);}
+  .q-eyebrow span{font-size:9px;font-weight:600;color:var(--gold);letter-spacing:0.22em;text-transform:uppercase;}
+  .q-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;font-weight:600;line-height:1.2;
+    color:var(--white);margin-bottom:24px;
   }
 
-  .gold-line-bottom {
-    position: absolute;
-    bottom: 200px;
-    left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+  /* OPTIONS */
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .opt{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 18px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:12px;cursor:pointer;
+    transition:all 0.22s ease;
+    font-size:13px;font-weight:400;color:var(--white-dim);
+    text-align:left;width:100%;
+  }
+  .opt:hover{
+    background:rgba(201,168,76,0.08);
+    border-color:rgba(201,168,76,0.35);
+    color:var(--white);
+  }
+  .opt.selected{
+    background:rgba(201,168,76,0.12);
+    border-color:var(--gold);
+    color:var(--white);
+  }
+  .opt-dot{
+    width:18px;height:18px;border-radius:50%;
+    border:1.5px solid rgba(201,168,76,0.4);
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    transition:all 0.22s ease;
+  }
+  .opt.selected .opt-dot{
+    background:var(--gold);border-color:var(--gold);
+  }
+  .opt.selected .opt-dot::after{
+    content:'';width:6px;height:6px;border-radius:50%;background:var(--navy);
   }
 
-  /* === TOP BAR === */
-  .top-bar {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 28px;
-    background: rgba(10,22,40,0.7);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    animation: slide-down 0.6s ease forwards;
+  /* NAV BUTTONS */
+  .nav-row{display:flex;gap:12px;margin-top:24px;}
+  .btn-back{
+    flex:0 0 auto;padding:14px 20px;
+    background:transparent;border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;color:var(--white-dim);
+    font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;
+    cursor:pointer;transition:all 0.2s ease;letter-spacing:0.06em;
+  }
+  .btn-back:hover{border-color:rgba(255,255,255,0.25);color:var(--white);}
+  .btn-next{
+    flex:1;padding:15px 0;
+    background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C);
+    border:none;border-radius:12px;
+    font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
+    color:var(--navy);letter-spacing:0.14em;text-transform:uppercase;
+    cursor:pointer;transition:all 0.2s ease;
+    box-shadow:0 6px 24px rgba(201,168,76,0.3);
+    position:relative;overflow:hidden;
+  }
+  .btn-next:hover{box-shadow:0 8px 32px rgba(201,168,76,0.45);transform:translateY(-1px);}
+  .btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+
+  /* FORM */
+  .form-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;font-weight:600;line-height:1.2;
+    color:var(--white);margin-bottom:6px;
+  }
+  .form-sub{font-size:12px;color:var(--white-dim);line-height:1.6;margin-bottom:24px;}
+  .form-grid{display:flex;flex-direction:column;gap:12px;}
+  .form-row{display:flex;gap:12px;}
+  .field{display:flex;flex-direction:column;gap:6px;flex:1;}
+  .field label{font-size:9px;font-weight:600;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;}
+  .field input,.field select{
+    padding:13px 16px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+    font-family:'Montserrat',sans-serif;font-size:13px;font-weight:400;
+    color:var(--white);outline:none;
+    transition:border-color 0.2s ease;
+    -webkit-appearance:none;
+  }
+  .field input::placeholder{color:rgba(248,245,239,0.3);}
+  .field input:focus,.field select:focus{border-color:var(--gold);}
+  .field select option{background:#0F2044;color:var(--white);}
+
+  .btn-submit{
+    width:100%;padding:17px 0;margin-top:8px;
+    background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C);
+    border:none;border-radius:12px;
+    font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
+    color:var(--navy);letter-spacing:0.14em;text-transform:uppercase;
+    cursor:pointer;box-shadow:0 8px 30px rgba(201,168,76,0.35);
+    transition:all 0.2s ease;
+  }
+  .btn-submit:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(201,168,76,0.45);}
+  .disclaimer{
+    text-align:center;margin-top:10px;
+    font-size:9px;color:rgba(248,245,239,0.3);letter-spacing:0.06em;line-height:1.6;
   }
 
-  .logo-mark {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  /* THANK YOU */
+  .ty-wrap{text-align:center;padding:20px 0;}
+  .ty-icon{
+    width:70px;height:70px;border-radius:50%;
+    background:rgba(201,168,76,0.12);border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;font-size:30px;
   }
+  .ty-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;font-weight:600;color:var(--white);margin-bottom:12px;
+  }
+  .ty-sub{font-size:13px;color:var(--white-dim);line-height:1.7;max-width:360px;margin:0 auto 28px;}
+  .ty-steps{display:flex;flex-direction:column;gap:12px;text-align:left;}
+  .ty-step{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:14px 16px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(201,168,76,0.15);border-radius:12px;
+  }
+  .ty-step-num{
+    width:26px;height:26px;border-radius:50%;
+    background:rgba(201,168,76,0.15);border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    font-size:11px;font-weight:700;color:var(--gold);
+  }
+  .ty-step-text b{display:block;font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;}
+  .ty-step-text span{font-size:11px;color:var(--white-dim);line-height:1.5;}
 
-  .logo-icon {
-    width: 34px;
-    height: 34px;
-    border: 1.5px solid var(--gold);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  /* FOOTER */
+  .footer{
+    width:100%;max-width:520px;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:28px;
   }
+  .footer span{font-size:9px;color:rgba(248,245,239,0.25);letter-spacing:0.08em;}
+  .footer-dot{width:3px;height:3px;border-radius:50%;background:rgba(201,168,76,0.3);}
 
-  .logo-icon::before {
-    content: 'B';
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-  }
-
-  .logo-name {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .logo-sub {
-    font-size: 8px;
-    font-weight: 400;
-    color: var(--gold);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-
-  .top-badge {
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 20px;
-    padding: 5px 12px;
-    font-size: 8.5px;
-    font-weight: 600;
-    color: var(--gold-light);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  /* === HERO SECTION === */
-  .hero {
-    position: absolute;
-    top: 100px;
-    left: 0; right: 0;
-    padding: 0 32px;
-    animation: fade-up 0.8s 0.2s ease both;
-  }
-
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-
-  .eyebrow-line {
-    width: 28px;
-    height: 1.5px;
-    background: var(--gold);
-  }
-
-  .eyebrow-text {
-    font-size: 9px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-
-  .headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
-  }
-
-  .headline span {
-    color: var(--gold-light);
-    font-style: italic;
-  }
-
-  .subline {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--white-dim);
-    line-height: 1.6;
-    margin-top: 16px;
-    max-width: 320px;
-  }
-
-  /* === STAT CARDS === */
-  .stats-row {
-    position: absolute;
-    top: 420px;
-    left: 28px; right: 28px;
-    display: flex;
-    gap: 10px;
-    animation: fade-up 0.8s 0.5s ease both;
-  }
-
-  .stat-card {
-    flex: 1;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 12px;
-    padding: 16px 14px;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--gold-light);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 8px;
-    font-weight: 500;
-    color: var(--white-dim);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 5px;
-    line-height: 1.4;
-  }
-
-  /* === QUIZ PROMPT SECTION === */
-  .quiz-section {
-    position: absolute;
-    top: 570px;
-    left: 28px; right: 28px;
-    animation: fade-up 0.8s 0.7s ease both;
-  }
-
-  .quiz-card {
-    background: rgba(201,168,76,0.07);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-radius: 16px;
-    padding: 22px 20px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .quiz-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 60px;
-    background: linear-gradient(0deg, rgba(201,168,76,0.06), transparent);
-    border-radius: 0 0 16px 16px;
-  }
-
-  .quiz-question {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.25;
-    margin-bottom: 14px;
-  }
-
-  .quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .quiz-opt {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 14px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--white-dim);
-  }
-
-  .quiz-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(201,168,76,0.5);
-    flex-shrink: 0;
-  }
-
-  /* === CTA BUTTON === */
-  .cta-section {
-    position: absolute;
-    bottom: 90px;
-    left: 28px; right: 28px;
-    animation: fade-up 0.8s 0.9s ease both;
-  }
-
-  .cta-btn {
-    width: 100%;
-    padding: 18px 0;
-    background: linear-gradient(135deg, #C9A84C 0%, #E8C96A 50%, #C9A84C 100%);
-    border: none;
-    border-radius: 12px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(201,168,76,0.35);
-  }
-
-  .cta-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent 60%);
-  }
-
-  .cta-sub {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 9px;
-    color: rgba(248,245,239,0.4);
-    letter-spacing: 0.08em;
-    font-weight: 400;
-  }
-
-  /* === BOTTOM BAR === */
-  .bottom-bar {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    background: rgba(10,22,40,0.85);
-    border-top: 1px solid rgba(201,168,76,0.12);
-  }
-
-  .bottom-text {
-    font-size: 8.5px;
-    color: rgba(248,245,239,0.35);
-    letter-spacing: 0.1em;
-    font-weight: 400;
-  }
-
-  .bottom-dot {
-    width: 3px; height: 3px;
-    border-radius: 50%;
-    background: var(--gold-dim);
-  }
-
-  /* === ANIMATIONS === */
-  @keyframes slide-down {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .shimmer {
-    position: absolute;
-    top: 0; left: -100%; width: 60%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-    animation: shimmer 3s 1.5s ease infinite;
-  }
-
-  @keyframes shimmer {
-    0% { left: -100%; }
-    50%, 100% { left: 160%; }
-  }
+  /* HIDDEN */
+  .hidden{display:none!important;}
 </style>
 </head>
 <body>
-<div class="ad-frame">
+<div class="bg"></div>
+<div class="bg-grid"></div>
 
-  <!-- Background -->
-  <div class="bg-gradient"></div>
-  <div class="grid-lines"></div>
-  <div class="gold-arc"></div>
-  <div class="gold-arc"></div>
-  <div class="gold-arc"></div>
-  <div class="gold-line-bottom"></div>
+<div class="wrapper">
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="logo-mark">
-      <div class="logo-icon"></div>
-      <div class="logo-text">
-        <span class="logo-name">Bohorquez</span>
-        <span class="logo-sub">Advisory</span>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-box"><span>B</span></div>
+      <div class="logo-words">
+        <b>Bohorquez</b>
+        <small>Advisory</small>
       </div>
     </div>
-    <div class="top-badge">Free · 60 Seconds</div>
+    <div class="free-badge">Free · 2 Min</div>
   </div>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="eyebrow">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">Wealth Strategy Quiz</span>
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-labels">
+      <span>Your Financial Profile</span>
+      <b id="progressLabel">1 of 8</b>
     </div>
-    <div class="headline">
-      Is Your<br>Money<br><span>Actually</span><br>Working?
-    </div>
-    <p class="subline">Most people in their 20s & 30s are losing thousands every year without knowing it. Take the quiz.</p>
-  </div>
-
-  <!-- Stats -->
-  <div class="stats-row">
-    <div class="stat-card">
-      <div class="stat-num">$0</div>
-      <div class="stat-label">Tax on<br>Growth</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">0%</div>
-      <div class="stat-label">Market<br>Loss Floor</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">30<span style="font-size:18px">yr</span></div>
-      <div class="stat-label">Long-Term<br>Protection</div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:12.5%"></div>
     </div>
   </div>
 
-  <!-- Quiz Card -->
-  <div class="quiz-section">
-    <div class="quiz-card">
-      <div class="shimmer"></div>
-      <div class="quiz-question">Where is most of your money right now?</div>
-      <div class="quiz-options">
-        <div class="quiz-opt"><div class="quiz-dot"></div> Checking / Savings Account</div>
-        <div class="quiz-opt"><div class="quiz-dot"></div> 401(k) or Employer Plan</div>
-        <div class="quiz-opt"><div class="quiz-dot"></div> Stocks / Crypto</div>
-        <div class="quiz-opt"><div class="quiz-dot"></div> Honestly, I'm not sure</div>
+  <!-- QUIZ CARD -->
+  <div class="card" id="quizCard">
+
+    <!-- Q1 -->
+    <div class="q-wrap" id="q1">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 1</span></div>
+      <div class="q-text">Where is most of your money right now?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q1')"><div class="opt-dot"></div>Checking / Savings Account</button>
+        <button class="opt" onclick="selectOpt(this,'q1')"><div class="opt-dot"></div>401(k) or Employer Plan</button>
+        <button class="opt" onclick="selectOpt(this,'q1')"><div class="opt-dot"></div>Stocks / Crypto</button>
+        <button class="opt" onclick="selectOpt(this,'q1')"><div class="opt-dot"></div>Honestly, I'm not sure</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-next" id="next1" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-wrap hidden" id="q2">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 2</span></div>
+      <div class="q-text">What's your #1 financial goal right now?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q2')"><div class="opt-dot"></div>Retire early & comfortably</button>
+        <button class="opt" onclick="selectOpt(this,'q2')"><div class="opt-dot"></div>Protect my family financially</button>
+        <button class="opt" onclick="selectOpt(this,'q2')"><div class="opt-dot"></div>Build tax-free wealth</button>
+        <button class="opt" onclick="selectOpt(this,'q2')"><div class="opt-dot"></div>Get out of debt first</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBack(1)">← Back</button>
+        <button class="btn-next" id="next2" onclick="goNext(3)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-wrap hidden" id="q3">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 3</span></div>
+      <div class="q-text">Are you married or in a relationship?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q3')"><div class="opt-dot"></div>Single</button>
+        <button class="opt" onclick="selectOpt(this,'q3')"><div class="opt-dot"></div>In a relationship</button>
+        <button class="opt" onclick="selectOpt(this,'q3')"><div class="opt-dot"></div>Married</button>
+        <button class="opt" onclick="selectOpt(this,'q3')"><div class="opt-dot"></div>Divorced / Separated</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+        <button class="btn-next" id="next3" onclick="goNext(4)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-wrap hidden" id="q4">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 4</span></div>
+      <div class="q-text">Do you have any children?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q4')"><div class="opt-dot"></div>No kids yet</button>
+        <button class="opt" onclick="selectOpt(this,'q4')"><div class="opt-dot"></div>1–2 kids</button>
+        <button class="opt" onclick="selectOpt(this,'q4')"><div class="opt-dot"></div>3 or more kids</button>
+        <button class="opt" onclick="selectOpt(this,'q4')"><div class="opt-dot"></div>Expecting / planning soon</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+        <button class="btn-next" id="next4" onclick="goNext(5)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-wrap hidden" id="q5">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 5</span></div>
+      <div class="q-text">Do you have a mortgage or are you renting?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q5')"><div class="opt-dot"></div>I rent</button>
+        <button class="opt" onclick="selectOpt(this,'q5')"><div class="opt-dot"></div>I have a mortgage</button>
+        <button class="opt" onclick="selectOpt(this,'q5')"><div class="opt-dot"></div>Neither / Live with family</button>
+        <button class="opt" onclick="selectOpt(this,'q5')"><div class="opt-dot"></div>Planning to buy soon</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBack(4)">← Back</button>
+        <button class="btn-next" id="next5" onclick="goNext(6)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-wrap hidden" id="q6">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 6</span></div>
+      <div class="q-text">If something happened to you tomorrow, who depends on you financially?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>My spouse / partner</button>
+        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>My children</button>
+        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>My parents or family</button>
+        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>No one depends on me yet</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBack(5)">← Back</button>
+        <button class="btn-next" id="next6" onclick="goNext(7)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-wrap hidden" id="q7">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 7</span></div>
+      <div class="q-text">Do you currently have life insurance?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q7')"><div class="opt-dot"></div>Yes, I'm covered</button>
+        <button class="opt" onclick="selectOpt(this,'q7')"><div class="opt-dot"></div>No, I don't have any</button>
+        <button class="opt" onclick="selectOpt(this,'q7')"><div class="opt-dot"></div>Not sure what I have</button>
+        <button class="opt" onclick="selectOpt(this,'q7')"><div class="opt-dot"></div>Had it but cancelled</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBack(6)">← Back</button>
+        <button class="btn-next" id="next7" onclick="goNext(8)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-wrap hidden" id="q8">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 8</span></div>
+      <div class="q-text">How much could you set aside monthly toward your financial future?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$50 – $100 / month</button>
+        <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$100 – $300 / month</button>
+        <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$300 – $500 / month</button>
+        <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$500+ / month</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBack(7)">← Back</button>
+        <button class="btn-next" id="next8" onclick="showForm()" disabled>See My Results →</button>
+      </div>
+    </div>
+
+  </div><!-- /card -->
+
+  <!-- LEAD FORM CARD -->
+  <div class="card hidden" id="formCard">
+    <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Almost Done</span></div>
+    <div class="form-title">Get Your Free<br><em>Financial Strategy</em></div>
+    <p class="form-sub">Enter your info below and a licensed advisor from Bohorquez Advisory will reach out with a personalized plan — no obligation.</p>
+    <div class="form-grid">
+      <div class="form-row">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" id="fname" placeholder="Julian" />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" id="lname" placeholder="Bohorquez" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="you@email.com" />
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="(305) 000-0000" />
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Age</label>
+          <input type="number" id="age" placeholder="28" min="18" max="80"/>
+        </div>
+        <div class="field">
+          <label>City</label>
+          <input type="text" id="city" placeholder="Miami" />
+        </div>
+      </div>
+      <div class="field">
+        <label>State</label>
+        <select id="state">
+          <option value="" disabled selected>Select your state</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+          <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+          <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+          <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+          <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+          <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+          <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+          <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+          <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+          <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+          <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+          <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+          <option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+      <button class="btn-submit" onclick="submitForm()">Get My Free Strategy →</button>
+      <p class="disclaimer">By submitting, you agree to be contacted by a licensed advisor. Your info is private and never sold.</p>
+    </div>
+  </div>
+
+  <!-- THANK YOU CARD -->
+  <div class="card hidden" id="tyCard">
+    <div class="ty-wrap">
+      <div class="ty-icon">✓</div>
+      <div class="ty-title">You're All Set,<br><em id="tyName">Friend</em>!</div>
+      <p class="ty-sub">Your financial profile has been received. A licensed advisor from Bohorquez Advisory will reach out within 24 hours with a strategy built around your answers.</p>
+      <div class="ty-steps">
+        <div class="ty-step">
+          <div class="ty-step-num">1</div>
+          <div class="ty-step-text">
+            <b>Check Your Phone</b>
+            <span>Expect a call or text from us within 24 hours.</span>
+          </div>
+        </div>
+        <div class="ty-step">
+          <div class="ty-step-num">2</div>
+          <div class="ty-step-text">
+            <b>Free Strategy Session</b>
+            <span>We'll walk you through options tailored to your profile — zero pressure.</span>
+          </div>
+        </div>
+        <div class="ty-step">
+          <div class="ty-step-num">3</div>
+          <div class="ty-step-text">
+            <b>Your Plan, Your Timeline</b>
+            <span>No commitment. Just clarity on where your money should be going.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- CTA -->
-  <div class="cta-section">
-    <button class="cta-btn">
-      Take the Free Quiz →
-    </button>
-    <div class="cta-sub">No credit card · No obligation · Results in 60 seconds</div>
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>bohorquezadvisory.com</span>
+    <div class="footer-dot"></div>
+    <span>Not financial advice · Results may vary</span>
+    <div class="footer-dot"></div>
+    <span>© 2025 Bohorquez Advisory</span>
   </div>
 
-  <!-- Bottom Bar -->
-  <div class="bottom-bar">
-    <span class="bottom-text">bohoradvisory.com</span>
-    <div class="bottom-dot"></div>
-    <span class="bottom-text">Results may vary · Not financial advice</span>
-  </div>
+</div><!-- /wrapper -->
 
-</div>
+<script>
+  var answers = {};
+  var currentQ = 1;
+
+  function selectOpt(el, qid) {
+    var opts = el.parentElement.querySelectorAll('.opt');
+    opts.forEach(function(o){ o.classList.remove('selected'); });
+    el.classList.add('selected');
+    answers[qid] = el.textContent.trim();
+    var nextBtn = document.getElementById('next' + qid.replace('q',''));
+    if(nextBtn) nextBtn.disabled = false;
+  }
+
+  function goNext(n) {
+    var prev = document.getElementById('q' + (n-1));
+    var next = document.getElementById('q' + n);
+    if(prev) prev.classList.add('hidden');
+    if(next) {
+      next.classList.remove('hidden');
+      currentQ = n;
+      updateProgress(n);
+      resetCard();
+    }
+  }
+
+  function goBack(n) {
+    var curr = document.getElementById('q' + (n+1));
+    var prev = document.getElementById('q' + n);
+    if(curr) curr.classList.add('hidden');
+    if(prev) {
+      prev.classList.remove('hidden');
+      currentQ = n;
+      updateProgress(n);
+      resetCard();
+    }
+  }
+
+  function updateProgress(n) {
+    var pct = (n / 8) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = n + ' of 8';
+  }
+
+  function showForm() {
+    document.getElementById('quizCard').classList.add('hidden');
+    document.getElementById('progressWrap').classList.add('hidden');
+    document.getElementById('formCard').classList.remove('hidden');
+    resetCard();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function submitForm() {
+    var fname = document.getElementById('fname').value.trim();
+    var lname = document.getElementById('lname').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var age   = document.getElementById('age').value.trim();
+    var city  = document.getElementById('city').value.trim();
+    var state = document.getElementById('state').value;
+
+    if(!fname||!lname||!email||!phone||!age||!city||!state){
+      alert('Please fill out all fields to get your free strategy.');
+      return;
+    }
+
+    // Log lead data to console (replace with your backend/webhook later)
+    console.log('LEAD:', {
+      name: fname + ' ' + lname,
+      email: email,
+      phone: phone,
+      age: age,
+      city: city,
+      state: state,
+      answers: answers
+    });
+
+    document.getElementById('formCard').classList.add('hidden');
+    document.getElementById('tyCard').classList.remove('hidden');
+    document.getElementById('tyName').textContent = fname;
+    resetCard();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function resetCard() {
+    // Re-trigger fade animation
+    var cards = document.querySelectorAll('.card:not(.hidden)');
+    cards.forEach(function(c){
+      c.style.animation = 'none';
+      c.offsetHeight; // reflow
+      c.style.animation = '';
+    });
+  }
+</script>
 </body>
 </html>
