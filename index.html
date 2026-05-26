@@ -10,194 +10,117 @@
   :root{
     --navy:#0A1628;
     --navy-mid:#0F2044;
-    --navy-light:#162B55;
     --gold:#C9A84C;
     --gold-light:#E8C96A;
-    --gold-dim:rgba(201,168,76,0.15);
     --white:#F8F5EF;
     --white-dim:rgba(248,245,239,0.65);
-    --white-faint:rgba(248,245,239,0.08);
   }
-  html,body{
-    min-height:100vh;
-    background:var(--navy);
-    font-family:'Montserrat',sans-serif;
-    color:var(--white);
-    overflow-x:hidden;
-  }
-  .bg{
-    position:fixed;inset:0;z-index:0;
-    background:radial-gradient(ellipse 80% 60% at 90% 10%,rgba(201,168,76,0.10) 0%,transparent 60%),
-               radial-gradient(ellipse 60% 50% at 5% 90%,rgba(201,168,76,0.07) 0%,transparent 55%),
-               linear-gradient(160deg,#0F2044 0%,#0A1628 50%,#060E1A 100%);
-  }
-  .bg-grid{
-    position:fixed;inset:0;z-index:0;
-    background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),
-                     linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);
-    background-size:48px 48px;
-  }
-  .wrapper{
-    position:relative;z-index:1;
-    min-height:100vh;
-    display:flex;flex-direction:column;align-items:center;
-    padding:0 16px 60px;
-  }
-  .topbar{
-    width:100%;max-width:520px;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:20px 0 24px;
-  }
+  html,body{min-height:100vh;background:var(--navy);font-family:'Montserrat',sans-serif;color:var(--white);overflow-x:hidden;}
+  .bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 90% 10%,rgba(201,168,76,0.10) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 5% 90%,rgba(201,168,76,0.07) 0%,transparent 55%),linear-gradient(160deg,#0F2044 0%,#0A1628 50%,#060E1A 100%);}
+  .bg-grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+  .wrapper{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 16px 80px;}
+
+  /* TOPBAR */
+  .topbar{width:100%;max-width:520px;display:flex;align-items:center;justify-content:space-between;padding:20px 0 24px;}
   .logo{display:flex;align-items:center;gap:10px;}
-  .logo-box{
-    width:36px;height:36px;border:1.5px solid var(--gold);border-radius:7px;
-    display:flex;align-items:center;justify-content:center;
-  }
+  .logo-box{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:7px;display:flex;align-items:center;justify-content:center;}
   .logo-box span{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);}
   .logo-words{display:flex;flex-direction:column;line-height:1.15;}
   .logo-words b{font-size:11px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--white);}
   .logo-words small{font-size:8px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
-  .free-badge{
-    background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);
-    border-radius:20px;padding:5px 13px;
-    font-size:8.5px;font-weight:600;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;
-  }
+  .free-badge{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:5px 13px;font-size:8.5px;font-weight:600;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;}
+
+  /* PROGRESS */
   .progress-wrap{width:100%;max-width:520px;margin-bottom:28px;}
   .progress-labels{display:flex;justify-content:space-between;margin-bottom:8px;}
   .progress-labels span{font-size:10px;font-weight:500;color:var(--white-dim);letter-spacing:0.08em;}
   .progress-labels b{font-size:10px;font-weight:600;color:var(--gold);}
-  .progress-track{
-    width:100%;height:3px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden;
-  }
-  .progress-fill{
-    height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));
-    border-radius:99px;transition:width 0.5s cubic-bezier(.4,0,.2,1);
-  }
-  .card{
-    width:100%;max-width:520px;
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(201,168,76,0.18);
-    border-radius:20px;padding:32px 28px;
-    backdrop-filter:blur(10px);
-    position:relative;overflow:hidden;
-    animation:fadeUp 0.45s cubic-bezier(.4,0,.2,1) both;
-  }
-  .card::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:2px;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  }
-  @keyframes fadeUp{
-    from{opacity:0;transform:translateY(22px);}
-    to{opacity:1;transform:translateY(0);}
-  }
+  .progress-track{width:100%;height:3px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:99px;transition:width 0.5s cubic-bezier(.4,0,.2,1);}
+
+  /* CARD */
+  .card{width:100%;max-width:520px;background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.18);border-radius:20px;padding:32px 28px;backdrop-filter:blur(10px);position:relative;overflow:hidden;animation:fadeUp 0.45s cubic-bezier(.4,0,.2,1) both;}
+  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+  /* QUESTION */
   .q-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
   .q-eyebrow-line{width:24px;height:1.5px;background:var(--gold);}
   .q-eyebrow span{font-size:9px;font-weight:600;color:var(--gold);letter-spacing:0.22em;text-transform:uppercase;}
-  .q-text{
-    font-family:'Cormorant Garamond',serif;
-    font-size:26px;font-weight:600;line-height:1.2;
-    color:var(--white);margin-bottom:24px;
-  }
+  .q-text{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.2;color:var(--white);margin-bottom:24px;}
+
+  /* OPTIONS */
   .options{display:flex;flex-direction:column;gap:10px;}
-  .opt{
-    display:flex;align-items:center;gap:14px;
-    padding:14px 18px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.07);
-    border-radius:12px;cursor:pointer;
-    transition:all 0.22s ease;
-    font-size:13px;font-weight:400;color:var(--white-dim);
-    text-align:left;width:100%;
-  }
+  .opt{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;cursor:pointer;transition:all 0.22s ease;font-size:13px;font-weight:400;color:var(--white-dim);text-align:left;width:100%;}
   .opt:hover{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.35);color:var(--white);}
   .opt.selected{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--white);}
-  .opt-dot{
-    width:18px;height:18px;border-radius:50%;
-    border:1.5px solid rgba(201,168,76,0.4);
-    flex-shrink:0;display:flex;align-items:center;justify-content:center;
-    transition:all 0.22s ease;
-  }
+  .opt-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(201,168,76,0.4);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.22s ease;}
   .opt.selected .opt-dot{background:var(--gold);border-color:var(--gold);}
   .opt.selected .opt-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--navy);}
+
+  /* BUTTONS */
   .nav-row{display:flex;gap:12px;margin-top:24px;}
-  .btn-back{
-    flex:0 0 auto;padding:14px 20px;
-    background:transparent;border:1px solid rgba(255,255,255,0.1);
-    border-radius:12px;color:var(--white-dim);
-    font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;
-    cursor:pointer;transition:all 0.2s ease;letter-spacing:0.06em;
-  }
+  .btn-back{flex:0 0 auto;padding:14px 20px;background:transparent;border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:var(--white-dim);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s ease;letter-spacing:0.06em;}
   .btn-back:hover{border-color:rgba(255,255,255,0.25);color:var(--white);}
-  .btn-next{
-    flex:1;padding:15px 0;
-    background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C);
-    border:none;border-radius:12px;
-    font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
-    color:var(--navy);letter-spacing:0.14em;text-transform:uppercase;
-    cursor:pointer;transition:all 0.2s ease;
-    box-shadow:0 6px 24px rgba(201,168,76,0.3);
-  }
+  .btn-next{flex:1;padding:15px 0;background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C);border:none;border-radius:12px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--navy);letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.2s ease;box-shadow:0 6px 24px rgba(201,168,76,0.3);}
   .btn-next:hover{box-shadow:0 8px 32px rgba(201,168,76,0.45);transform:translateY(-1px);}
   .btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+
+  /* FORM */
   .form-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.2;color:var(--white);margin-bottom:6px;}
   .form-sub{font-size:12px;color:var(--white-dim);line-height:1.6;margin-bottom:24px;}
   .form-grid{display:flex;flex-direction:column;gap:12px;}
   .form-row{display:flex;gap:12px;}
   .field{display:flex;flex-direction:column;gap:6px;flex:1;}
   .field label{font-size:9px;font-weight:600;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;}
-  .field input,.field select{
-    padding:13px 16px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:10px;
-    font-family:'Montserrat',sans-serif;font-size:13px;
-    color:var(--white);outline:none;
-    transition:border-color 0.2s ease;
-    -webkit-appearance:none;
-  }
+  .field input,.field select{padding:13px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--white);outline:none;transition:border-color 0.2s ease;-webkit-appearance:none;}
   .field input::placeholder{color:rgba(248,245,239,0.3);}
   .field input:focus,.field select:focus{border-color:var(--gold);}
   .field select option{background:#0F2044;color:var(--white);}
-  .btn-submit{
-    width:100%;padding:17px 0;margin-top:8px;
-    background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C);
-    border:none;border-radius:12px;
-    font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
-    color:var(--navy);letter-spacing:0.14em;text-transform:uppercase;
-    cursor:pointer;box-shadow:0 8px 30px rgba(201,168,76,0.35);
-    transition:all 0.2s ease;
-  }
+  .btn-submit{width:100%;padding:17px 0;margin-top:8px;background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C);border:none;border-radius:12px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--navy);letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 30px rgba(201,168,76,0.35);transition:all 0.2s ease;}
   .btn-submit:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(201,168,76,0.45);}
   .disclaimer{text-align:center;margin-top:10px;font-size:9px;color:rgba(248,245,239,0.3);letter-spacing:0.06em;line-height:1.6;}
-  .ty-wrap{text-align:center;padding:20px 0;}
-  .ty-icon{
-    width:70px;height:70px;border-radius:50%;
-    background:rgba(201,168,76,0.12);border:2px solid var(--gold);
-    display:flex;align-items:center;justify-content:center;
-    margin:0 auto 20px;font-size:30px;
-  }
-  .ty-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--white);margin-bottom:12px;}
-  .ty-sub{font-size:13px;color:var(--white-dim);line-height:1.7;max-width:360px;margin:0 auto 28px;}
-  .ty-steps{display:flex;flex-direction:column;gap:12px;text-align:left;}
-  .ty-step{
-    display:flex;align-items:flex-start;gap:14px;
-    padding:14px 16px;
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(201,168,76,0.15);border-radius:12px;
-  }
-  .ty-step-num{
-    width:26px;height:26px;border-radius:50%;
-    background:rgba(201,168,76,0.15);border:1px solid var(--gold);
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    font-size:11px;font-weight:700;color:var(--gold);
-  }
-  .ty-step-text b{display:block;font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;}
-  .ty-step-text span{font-size:11px;color:var(--white-dim);line-height:1.5;}
-  .footer{
-    width:100%;max-width:520px;
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    margin-top:28px;
-  }
+
+  /* RESULT CARD */
+  .result-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:20px;}
+  .result-badge.gap{background:rgba(220,60,60,0.12);border:1px solid rgba(220,60,60,0.35);color:#FF7070;}
+  .result-badge.opportunity{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.35);color:var(--gold-light);}
+  .result-badge.strong{background:rgba(60,200,100,0.12);border:1px solid rgba(60,200,100,0.35);color:#6DEBA0;}
+  .result-badge.tax{background:rgba(80,140,255,0.12);border:1px solid rgba(80,140,255,0.35);color:#8BB8FF;}
+  .result-icon{font-size:14px;}
+  .result-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:1.1;color:var(--white);margin-bottom:12px;}
+  .result-title em{color:var(--gold-light);font-style:italic;}
+  .result-desc{font-size:13px;color:var(--white-dim);line-height:1.75;margin-bottom:24px;}
+  .result-points{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+  .result-point{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.12);border-radius:12px;}
+  .result-point-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+  .result-point-text{font-size:12px;color:var(--white-dim);line-height:1.55;}
+  .result-point-text b{display:block;color:var(--white);font-weight:600;margin-bottom:2px;font-size:12px;}
+  .score-bar-wrap{margin-bottom:28px;}
+  .score-bar-label{display:flex;justify-content:space-between;margin-bottom:8px;}
+  .score-bar-label span{font-size:10px;color:var(--white-dim);font-weight:500;}
+  .score-bar-label b{font-size:10px;color:var(--gold);font-weight:700;}
+  .score-bar-track{width:100%;height:6px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden;}
+  .score-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+
+  /* DIVIDER */
+  .section-divider{width:100%;max-width:520px;display:flex;align-items:center;gap:14px;margin:28px 0;}
+  .section-divider-line{flex:1;height:1px;background:rgba(201,168,76,0.15);}
+  .section-divider-text{font-size:9px;font-weight:600;color:rgba(201,168,76,0.5);letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap;}
+
+  /* CALENDLY CARD */
+  .calendly-card{width:100%;max-width:520px;background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.18);border-radius:20px;overflow:hidden;position:relative;}
+  .calendly-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:1;}
+  .calendly-header{padding:24px 28px 0;}
+  .calendly-header-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .calendly-header-eyebrow-line{width:24px;height:1.5px;background:var(--gold);}
+  .calendly-header-eyebrow span{font-size:9px;font-weight:600;color:var(--gold);letter-spacing:0.22em;text-transform:uppercase;}
+  .calendly-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--white);line-height:1.2;margin-bottom:8px;}
+  .calendly-sub{font-size:12px;color:var(--white-dim);line-height:1.6;margin-bottom:20px;}
+  .calendly-embed{width:100%;min-height:700px;border:none;}
+
+  /* FOOTER */
+  .footer{width:100%;max-width:520px;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:32px;}
   .footer span{font-size:9px;color:rgba(248,245,239,0.25);letter-spacing:0.08em;}
   .footer-dot{width:3px;height:3px;border-radius:50%;background:rgba(201,168,76,0.3);}
   .hidden{display:none!important;}
@@ -207,6 +130,8 @@
 <div class="bg"></div>
 <div class="bg-grid"></div>
 <div class="wrapper">
+
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="logo">
       <div class="logo-box"><span>B</span></div>
@@ -214,6 +139,8 @@
     </div>
     <div class="free-badge">Free · 2 Min</div>
   </div>
+
+  <!-- PROGRESS -->
   <div class="progress-wrap" id="progressWrap">
     <div class="progress-labels">
       <span>Your Financial Profile</span>
@@ -223,7 +150,10 @@
       <div class="progress-fill" id="progressFill" style="width:12.5%"></div>
     </div>
   </div>
+
+  <!-- QUIZ CARD -->
   <div class="card" id="quizCard">
+
     <div class="q-wrap" id="q1">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 1</span></div>
       <div class="q-text">Where is most of your money right now?</div>
@@ -235,6 +165,7 @@
       </div>
       <div class="nav-row"><button class="btn-next" id="next1" onclick="goNext(2)" disabled>Continue →</button></div>
     </div>
+
     <div class="q-wrap hidden" id="q2">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 2</span></div>
       <div class="q-text">What's your #1 financial goal right now?</div>
@@ -246,6 +177,7 @@
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(1)">← Back</button><button class="btn-next" id="next2" onclick="goNext(3)" disabled>Continue →</button></div>
     </div>
+
     <div class="q-wrap hidden" id="q3">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 3</span></div>
       <div class="q-text">Are you married or in a relationship?</div>
@@ -257,6 +189,7 @@
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(2)">← Back</button><button class="btn-next" id="next3" onclick="goNext(4)" disabled>Continue →</button></div>
     </div>
+
     <div class="q-wrap hidden" id="q4">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 4</span></div>
       <div class="q-text">Do you have any children?</div>
@@ -268,6 +201,7 @@
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(3)">← Back</button><button class="btn-next" id="next4" onclick="goNext(5)" disabled>Continue →</button></div>
     </div>
+
     <div class="q-wrap hidden" id="q5">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 5</span></div>
       <div class="q-text">Do you have a mortgage or are you renting?</div>
@@ -279,6 +213,7 @@
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(4)">← Back</button><button class="btn-next" id="next5" onclick="goNext(6)" disabled>Continue →</button></div>
     </div>
+
     <div class="q-wrap hidden" id="q6">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 6</span></div>
       <div class="q-text">If something happened to you tomorrow, who depends on you financially?</div>
@@ -290,6 +225,7 @@
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(5)">← Back</button><button class="btn-next" id="next6" onclick="goNext(7)" disabled>Continue →</button></div>
     </div>
+
     <div class="q-wrap hidden" id="q7">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 7</span></div>
       <div class="q-text">Do you currently have life insurance?</div>
@@ -301,6 +237,7 @@
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(6)">← Back</button><button class="btn-next" id="next7" onclick="goNext(8)" disabled>Continue →</button></div>
     </div>
+
     <div class="q-wrap hidden" id="q8">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 8</span></div>
       <div class="q-text">How much could you set aside monthly toward your financial future?</div>
@@ -312,7 +249,10 @@
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(7)">← Back</button><button class="btn-next" id="next8" onclick="showForm()" disabled>See My Results →</button></div>
     </div>
-  </div>
+
+  </div><!-- /quizCard -->
+
+  <!-- LEAD FORM CARD -->
   <div class="card hidden" id="formCard">
     <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Almost Done</span></div>
     <div class="form-title">Get Your Free<br><em>Financial Strategy</em></div>
@@ -351,18 +291,51 @@
       <p class="disclaimer">By submitting, you agree to be contacted by a licensed advisor. Your info is private and never sold.</p>
     </div>
   </div>
-  <div class="card hidden" id="tyCard">
-    <div class="ty-wrap">
-      <div class="ty-icon">✓</div>
-      <div class="ty-title">You're All Set,<br><em id="tyName">Friend</em>!</div>
-      <p class="ty-sub">Your financial profile has been received. A licensed advisor from Bohorquez Advisory will reach out within 24 hours with a strategy built around your answers.</p>
-      <div class="ty-steps">
-        <div class="ty-step"><div class="ty-step-num">1</div><div class="ty-step-text"><b>Check Your Phone</b><span>Expect a call or text from us within 24 hours.</span></div></div>
-        <div class="ty-step"><div class="ty-step-num">2</div><div class="ty-step-text"><b>Free Strategy Session</b><span>We'll walk you through options tailored to your profile — zero pressure.</span></div></div>
-        <div class="ty-step"><div class="ty-step-num">3</div><div class="ty-step-text"><b>Your Plan, Your Timeline</b><span>No commitment. Just clarity on where your money should be going.</span></div></div>
+
+  <!-- RESULT CARD -->
+  <div class="card hidden" id="resultCard">
+    <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Your Results</span></div>
+    <div id="resultBadge" class="result-badge"></div>
+    <div class="result-title" id="resultTitle"></div>
+    <p class="result-desc" id="resultDesc"></p>
+    <div class="score-bar-wrap">
+      <div class="score-bar-label">
+        <span>Financial Protection Score</span>
+        <b id="scoreLabel">0%</b>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" id="scoreBar" style="width:0%"></div>
       </div>
     </div>
+    <div class="result-points" id="resultPoints"></div>
   </div>
+
+  <!-- DIVIDER -->
+  <div class="section-divider hidden" id="calDivider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">Book Your Free Strategy Call</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <!-- CALENDLY CARD -->
+  <div class="calendly-card hidden" id="calendlyCard">
+    <div class="calendly-header">
+      <div class="calendly-header-eyebrow"><div class="calendly-header-eyebrow-line"></div><span>Next Step</span></div>
+      <div class="calendly-title">Book Your Free<br><em style="color:var(--gold-light);font-style:italic;">Strategy Session</em></div>
+      <p class="calendly-sub">Pick a time that works for you. Your advisor will review your results and walk you through a custom plan — no pressure, no commitment.</p>
+    </div>
+    <!-- REPLACE the src below with your real Calendly URL -->
+    <iframe
+      class="calendly-embed"
+      id="calendlyFrame"
+      src="https://calendly.com/bohorquez-advisory/30min?hide_gdpr_banner=1&background_color=0a1628&text_color=f8f5ef&primary_color=c9a84c"
+      frameborder="0"
+      scrolling="yes"
+      allowtransparency="true">
+    </iframe>
+  </div>
+
+  <!-- FOOTER -->
   <div class="footer">
     <span>bohorquezadvisory.com</span>
     <div class="footer-dot"></div>
@@ -370,74 +343,239 @@
     <div class="footer-dot"></div>
     <span>© 2025 Bohorquez Advisory</span>
   </div>
-</div>
+
+</div><!-- /wrapper -->
+
 <script>
-  var answers = {};
-  var currentQ = 1;
-  function selectOpt(el, qid) {
-    var opts = el.parentElement.querySelectorAll('.opt');
-    opts.forEach(function(o){ o.classList.remove('selected'); });
-    el.classList.add('selected');
-    answers[qid] = el.textContent.trim();
-    var nextBtn = document.getElementById('next' + qid.replace('q',''));
-    if(nextBtn) nextBtn.disabled = false;
-  }
-  function goNext(n) {
-    var prev = document.getElementById('q' + (n-1));
-    var next = document.getElementById('q' + n);
-    if(prev) prev.classList.add('hidden');
-    if(next) { next.classList.remove('hidden'); currentQ = n; updateProgress(n); resetCard(); }
-  }
-  function goBack(n) {
-    var curr = document.getElementById('q' + (n+1));
-    var prev = document.getElementById('q' + n);
-    if(curr) curr.classList.add('hidden');
-    if(prev) { prev.classList.remove('hidden'); currentQ = n; updateProgress(n); resetCard(); }
-  }
-  function updateProgress(n) {
-    document.getElementById('progressFill').style.width = (n/8*100) + '%';
-    document.getElementById('progressLabel').textContent = n + ' of 8';
-  }
-  function showForm() {
-    document.getElementById('quizCard').classList.add('hidden');
-    document.getElementById('progressWrap').classList.add('hidden');
-    document.getElementById('formCard').classList.remove('hidden');
-    resetCard();
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-  function submitForm() {
-    var fname = document.getElementById('fname').value.trim();
-    var lname = document.getElementById('lname').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var phone = document.getElementById('phone').value.trim();
-    var age   = document.getElementById('age').value.trim();
-    var city  = document.getElementById('city').value.trim();
-    var state = document.getElementById('state').value;
-    if(!fname||!lname||!email||!phone||!age||!city||!state){
-      alert('Please fill out all fields to get your free strategy.');
-      return;
-    }
-    var leadData = {
-      fname:fname, lname:lname, email:email, phone:phone,
-      age:age, city:city, state:state,
-      q1:answers.q1||'', q2:answers.q2||'', q3:answers.q3||'', q4:answers.q4||'',
-      q5:answers.q5||'', q6:answers.q6||'', q7:answers.q7||'', q8:answers.q8||''
+var answers = {};
+var currentQ = 1;
+var leadFirstName = '';
+
+// ── RESULT ENGINE ──────────────────────────────────────────────
+function calcResult() {
+  var score = 0;
+
+  // Q1 – where is money
+  if(answers.q1 === '401(k) or Employer Plan') score += 15;
+  else if(answers.q1 === 'Stocks / Crypto') score += 20;
+  else if(answers.q1 === 'Checking / Savings Account') score += 5;
+  else score += 0;
+
+  // Q2 – goal
+  if(answers.q2 === 'Build tax-free wealth') score += 20;
+  else if(answers.q2 === 'Retire early & comfortably') score += 15;
+  else if(answers.q2 === 'Protect my family financially') score += 10;
+  else score += 5;
+
+  // Q3 – relationship (dependents increase need)
+  if(answers.q3 === 'Married') score += 10;
+  else if(answers.q3 === 'In a relationship') score += 8;
+  else score += 5;
+
+  // Q4 – kids
+  if(answers.q4 === '3 or more kids') score += 5;
+  else if(answers.q4 === '1–2 kids') score += 8;
+  else if(answers.q4 === 'Expecting / planning soon') score += 6;
+  else score += 12;
+
+  // Q5 – mortgage
+  if(answers.q5 === 'I have a mortgage') score += 5;
+  else if(answers.q5 === 'Planning to buy soon') score += 8;
+  else score += 10;
+
+  // Q6 – dependents
+  if(answers.q6 === 'No one depends on me yet') score += 15;
+  else score += 5;
+
+  // Q7 – has insurance
+  if(answers.q7 === 'Yes, I\'m covered') score += 20;
+  else if(answers.q7 === 'Not sure what I have') score += 5;
+  else score += 0;
+
+  // Q8 – budget
+  if(answers.q8 === '$500+ / month') score += 20;
+  else if(answers.q8 === '$300 – $500 / month') score += 15;
+  else if(answers.q8 === '$100 – $300 / month') score += 10;
+  else score += 5;
+
+  // Normalize to 100
+  var pct = Math.min(Math.round((score / 100) * 100), 100);
+
+  var result;
+  var hasInsurance = answers.q7 === 'Yes, I\'m covered';
+  var hasDependents = answers.q6 !== 'No one depends on me yet';
+  var wantsTaxFree = answers.q2 === 'Build tax-free wealth';
+  var wantsRetire = answers.q2 === 'Retire early & comfortably';
+  var goodBudget = answers.q8 === '$300 – $500 / month' || answers.q8 === '$500+ / month';
+
+  if(!hasInsurance && hasDependents) {
+    result = {
+      type:'gap',
+      badge:'⚠️ Protection Gap Detected',
+      badgeClass:'gap',
+      title:'Your Family Has a <em>Protection Gap</em>',
+      desc:'Based on your answers, people depend on you financially — but you currently don\'t have life insurance coverage in place. This is the most critical gap we see, and the good news is it\'s one of the easiest to fix with the right strategy.',
+      points:[
+        {icon:'🛡️', title:'No Coverage = High Risk', text:'If something happened tomorrow, your loved ones would be left without a financial safety net.'},
+        {icon:'💰', title:'You Can Start Low', text:'A solid IUL policy can start at as little as $50–$100/month and build cash value over time.'},
+        {icon:'📈', title:'The Longer You Wait, The More It Costs', text:'Life insurance premiums go up with age and health changes. Locking in now saves you money long term.'}
+      ],
+      score: Math.max(pct, 20)
     };
-    fetch("https://script.google.com/macros/s/AKfycbzMCIdwhWHdgKgB7QzCIKk8picAHX8-8fc4lv4b0rjRCoB1__NI0TiXTQKvyZbft5Rh2w/exec", {
-      method:"POST", mode:"no-cors",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(leadData)
-    }).catch(function(err){ console.log('Sheet error:',err); });
-    document.getElementById('formCard').classList.add('hidden');
-    document.getElementById('tyCard').classList.remove('hidden');
-    document.getElementById('tyName').textContent = fname;
-    resetCard();
-    window.scrollTo({top:0,behavior:'smooth'});
+  } else if(wantsTaxFree && goodBudget) {
+    result = {
+      type:'tax',
+      badge:'💎 Tax-Free Growth Opportunity',
+      badgeClass:'tax',
+      title:'You\'re Positioned for <em>Tax-Free Wealth</em>',
+      desc:'You have the right budget and the right mindset. An Indexed Universal Life policy lets your money grow based on market performance — without the risk of losing it — and you can access it tax-free in retirement.',
+      points:[
+        {icon:'📊', title:'Market Growth, Zero Loss Floor', text:'Your cash value grows with the S&P 500 index but is protected from market downturns.'},
+        {icon:'🏦', title:'Your Own Private Bank', text:'Borrow against your cash value anytime — for anything — without taxes or penalties.'},
+        {icon:'🎯', title:'Retire On Your Terms', text:'Build a tax-free income stream that supplements or replaces your 401(k) in retirement.'}
+      ],
+      score: Math.max(pct, 65)
+    };
+  } else if(wantsRetire || answers.q8 === '$100 – $300 / month') {
+    result = {
+      type:'opportunity',
+      badge:'📅 Retirement Planning Opportunity',
+      badgeClass:'opportunity',
+      title:'A <em>Retirement Strategy</em> Built for You',
+      desc:'You\'re thinking ahead — and that\'s already ahead of most people your age. The right retirement plan now can mean the difference between working until 70 or retiring on your terms at 55.',
+      points:[
+        {icon:'⏳', title:'Time Is Your Biggest Asset', text:'The earlier you start, the more compound growth works in your favor — even small contributions make a massive difference.'},
+        {icon:'🔒', title:'Guaranteed Growth', text:'Unlike a 401(k), certain strategies protect you from market crashes while still growing your money.'},
+        {icon:'💡', title:'Multiple Streams', text:'Combine a retirement account with a cash-value policy for maximum flexibility and tax advantages.'}
+      ],
+      score: Math.max(pct, 45)
+    };
+  } else {
+    result = {
+      type:'strong',
+      badge:'✅ Strong Financial Foundation',
+      badgeClass:'strong',
+      title:'You Have a <em>Strong Foundation</em> — Let\'s Optimize It',
+      desc:'You\'re already doing better than most. You have coverage, you\'re thinking about the future, and you have budget to work with. Now it\'s about making sure your money is working as hard as possible for you.',
+      points:[
+        {icon:'🔄', title:'Review Your Current Policy', text:'Many people are over-paying or under-covered. A quick review could save you money or unlock better benefits.'},
+        {icon:'📈', title:'Stack Your Strategies', text:'Adding an IUL on top of your current plan creates a tax-free layer that most advisors never mention.'},
+        {icon:'🌱', title:'Grow What You Have', text:'Your existing savings can be repositioned to earn more with zero additional risk to your family.'}
+      ],
+      score: Math.max(pct, 75)
+    };
   }
-  function resetCard() {
-    var cards = document.querySelectorAll('.card:not(.hidden)');
-    cards.forEach(function(c){ c.style.animation='none'; c.offsetHeight; c.style.animation=''; });
+
+  return result;
+}
+
+// ── SHOW RESULT ────────────────────────────────────────────────
+function showResult() {
+  var result = calcResult();
+
+  // Badge
+  var badge = document.getElementById('resultBadge');
+  badge.className = 'result-badge ' + result.badgeClass;
+  badge.innerHTML = '<span class="result-icon">' + result.badge.split(' ')[0] + '</span>' + result.badge.split(' ').slice(1).join(' ');
+
+  // Title
+  document.getElementById('resultTitle').innerHTML = result.title;
+
+  // Desc
+  document.getElementById('resultDesc').textContent = result.desc;
+
+  // Score bar
+  document.getElementById('scoreLabel').textContent = result.score + '%';
+  setTimeout(function(){ document.getElementById('scoreBar').style.width = result.score + '%'; }, 300);
+
+  // Points
+  var pts = document.getElementById('resultPoints');
+  pts.innerHTML = '';
+  result.points.forEach(function(p){
+    pts.innerHTML += '<div class="result-point"><div class="result-point-icon">' + p.icon + '</div><div class="result-point-text"><b>' + p.title + '</b>' + p.text + '</div></div>';
+  });
+
+  // Show cards
+  document.getElementById('resultCard').classList.remove('hidden');
+  document.getElementById('calDivider').classList.remove('hidden');
+  document.getElementById('calendlyCard').classList.remove('hidden');
+
+  resetCard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── QUIZ NAVIGATION ────────────────────────────────────────────
+function selectOpt(el, qid) {
+  var opts = el.parentElement.querySelectorAll('.opt');
+  opts.forEach(function(o){ o.classList.remove('selected'); });
+  el.classList.add('selected');
+  answers[qid] = el.textContent.trim();
+  var nextBtn = document.getElementById('next' + qid.replace('q',''));
+  if(nextBtn) nextBtn.disabled = false;
+}
+
+function goNext(n) {
+  document.getElementById('q'+(n-1)).classList.add('hidden');
+  var next = document.getElementById('q'+n);
+  if(next){ next.classList.remove('hidden'); currentQ=n; updateProgress(n); resetCard(); }
+}
+
+function goBack(n) {
+  document.getElementById('q'+(n+1)).classList.add('hidden');
+  var prev = document.getElementById('q'+n);
+  if(prev){ prev.classList.remove('hidden'); currentQ=n; updateProgress(n); resetCard(); }
+}
+
+function updateProgress(n) {
+  document.getElementById('progressFill').style.width = (n/8*100)+'%';
+  document.getElementById('progressLabel').textContent = n+' of 8';
+}
+
+function showForm() {
+  document.getElementById('quizCard').classList.add('hidden');
+  document.getElementById('progressWrap').classList.add('hidden');
+  document.getElementById('formCard').classList.remove('hidden');
+  resetCard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function submitForm() {
+  var fname = document.getElementById('fname').value.trim();
+  var lname = document.getElementById('lname').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var age   = document.getElementById('age').value.trim();
+  var city  = document.getElementById('city').value.trim();
+  var state = document.getElementById('state').value;
+
+  if(!fname||!lname||!email||!phone||!age||!city||!state){
+    alert('Please fill out all fields to get your free strategy.');
+    return;
   }
+
+  leadFirstName = fname;
+
+  var leadData = {
+    fname:fname, lname:lname, email:email, phone:phone,
+    age:age, city:city, state:state,
+    q1:answers.q1||'', q2:answers.q2||'', q3:answers.q3||'', q4:answers.q4||'',
+    q5:answers.q5||'', q6:answers.q6||'', q7:answers.q7||'', q8:answers.q8||''
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzMCIdwhWHdgKgB7QzCIKk8picAHX8-8fc4lv4b0rjRCoB1__NI0TiXTQKvyZbft5Rh2w/exec", {
+    method:"POST", mode:"no-cors",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(leadData)
+  }).catch(function(err){ console.log('Sheet error:',err); });
+
+  document.getElementById('formCard').classList.add('hidden');
+  showResult();
+}
+
+function resetCard() {
+  var cards = document.querySelectorAll('.card:not(.hidden)');
+  cards.forEach(function(c){ c.style.animation='none'; c.offsetHeight; c.style.animation=''; });
+}
 </script>
 </body>
 </html>
