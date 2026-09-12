@@ -382,11 +382,9 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
       <div class="calendly-title">Book Your Free<br><em>Strategy Session</em></div>
       <p class="calendly-sub">Pick a time that works for you. Your advisor will review your results and walk you through a custom plan — no pressure, no commitment.</p>
     </div>
-    <div class="calendly-inline-widget"
-      data-url="https://calendly.com/bohorquez-advisory/30min?hide_gdpr_banner=1&background_color=fff8ee&text_color=2a1a08&primary_color=16527f">
-    </div>
+    <div id="calendlyContainer" style="width:100%;min-height:700px;"></div>
   </div>
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" defer></script>
   <div class="footer">
     <span>bohorquezadvisory.com</span>
     <div class="footer-dot"></div>
@@ -505,6 +503,28 @@ function showResult(){
   // Meta Pixel: fire when the visitor sees their quiz result (a completed lead-quality signal)
   if(typeof fbq!=='undefined'){
     fbq('track','CompleteRegistration',{content_name:'Financial Quiz',content_category:r.type});
+  }
+
+  // Now that the Calendly section is actually visible (not display:none), build the
+  // calendar manually. Doing this on page load instead would give Calendly a hidden,
+  // zero-size box to measure and break the time-slot layout — this is what caused it
+  // to render broken earlier.
+  if(!window._calendlyInitialized){
+    window._calendlyInitialized = true;
+    var tryInit = function(){
+      if(typeof Calendly !== 'undefined'){
+        Calendly.initInlineWidget({
+          url: 'https://calendly.com/bohorquez-advisory/30min?hide_gdpr_banner=1&background_color=fff8ee&text_color=2a1a08&primary_color=16527f',
+          parentElement: document.getElementById('calendlyContainer'),
+          prefill: {},
+          utm: {}
+        });
+      } else {
+        // widget.js hasn't finished loading yet — retry shortly.
+        setTimeout(tryInit, 150);
+      }
+    };
+    tryInit();
   }
 }
 
