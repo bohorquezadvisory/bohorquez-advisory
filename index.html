@@ -204,10 +204,10 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
   <div class="progress-wrap" id="progressWrap">
     <div class="progress-labels">
       <span>Your Financial Profile</span>
-      <b id="progressLabel">1 of 8</b>
+      <b id="progressLabel">1 of 9</b>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" id="progressFill" style="width:12.5%"></div>
+      <div class="progress-fill" id="progressFill" style="width:11.1%"></div>
     </div>
   </div>
 
@@ -299,7 +299,18 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
         <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$300 – $500 / month</button>
         <button class="opt" onclick="selectOpt(this,'q8')"><div class="opt-dot"></div>$500+ / month</button>
       </div>
-      <div class="nav-row"><button class="btn-back" onclick="goBack(7)">← Back</button><button class="btn-next" id="next8" onclick="showForm()" disabled>See My Results →</button></div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(7)">← Back</button><button class="btn-next" id="next8" onclick="goNext(9)" disabled>Continue →</button></div>
+    </div>
+    <div class="q-wrap hidden" id="q9">
+      <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 9</span></div>
+      <div class="q-text">Have you been diagnosed with or treated for any major health condition in the past 2 years (e.g. heart, cancer, diabetes)?</div>
+      <div class="options">
+        <button class="opt" onclick="selectOpt(this,'q9')"><div class="opt-dot"></div>No health concerns</button>
+        <button class="opt" onclick="selectOpt(this,'q9')"><div class="opt-dot"></div>Managing a minor/controlled condition</button>
+        <button class="opt" onclick="selectOpt(this,'q9')"><div class="opt-dot"></div>Yes, a major condition</button>
+        <button class="opt" onclick="selectOpt(this,'q9')"><div class="opt-dot"></div>Prefer to discuss privately</button>
+      </div>
+      <div class="nav-row"><button class="btn-back" onclick="goBack(8)">← Back</button><button class="btn-next" id="next9" onclick="showForm()" disabled>See My Results →</button></div>
     </div>
   </div>
 
@@ -520,8 +531,8 @@ function goBack(n){
 }
 
 function updateProgress(n){
-  document.getElementById('progressFill').style.width=(n/8*100)+'%';
-  document.getElementById('progressLabel').textContent=n+' of 8';
+  document.getElementById('progressFill').style.width=(n/9*100)+'%';
+  document.getElementById('progressLabel').textContent=n+' of 9';
 }
 
 function showForm(){
@@ -549,7 +560,8 @@ function submitForm(){
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({fname:fname,lname:lname,email:email,phone:phone,age:age,city:city,state:state,
       q1:answers.q1||'',q2:answers.q2||'',q3:answers.q3||'',q4:answers.q4||'',
-      q5:answers.q5||'',q6:answers.q6||'',q7:answers.q7||'',q8:answers.q8||''})
+      q5:answers.q5||'',q6:answers.q6||'',q7:answers.q7||'',q8:answers.q8||'',
+      q9_health:answers.q9||''})
   }).catch(function(err){console.log('err:',err);});
   document.getElementById('formCard').classList.add('hidden');
   showResult();
