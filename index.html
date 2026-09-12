@@ -54,18 +54,19 @@
   .hero-warm{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,180,80,0.08) 0%,rgba(14,58,92,0.88) 100%);}
   .hero-content{position:relative;z-index:1;padding:18px 20px 22px;}
   .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-  .logo-img{height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);}
-  .free-badge{background:rgba(255,248,220,0.15);border:1px solid rgba(240,192,96,0.45);border-radius:20px;padding:5px 12px;font-size:8px;font-weight:600;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;}
-  .hero-eyebrow{font-size:8.5px;font-weight:600;color:rgba(240,192,96,0.8);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:7px;}
-  .hero-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#FFFAF0;line-height:1.1;}
+  .logo-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#FFFAF0;letter-spacing:0.03em;line-height:1;}
+  .logo-text em{color:var(--gold-light);font-style:italic;}
+  .free-badge{background:rgba(255,248,220,0.15);border:1px solid rgba(240,192,96,0.45);border-radius:20px;padding:5px 12px;font-size:10px;font-weight:600;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;}
+  .hero-eyebrow{font-size:10px;font-weight:600;color:rgba(240,192,96,0.8);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:7px;}
+  .hero-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#FFFAF0;line-height:1.1;}
   .hero-title em{color:var(--gold-light);font-style:italic;}
-  .hero-sub{font-size:11px;color:rgba(255,250,240,0.62);margin-top:6px;line-height:1.55;max-width:340px;}
+  .hero-sub{font-size:14px;color:rgba(255,250,240,0.62);margin-top:6px;line-height:1.55;max-width:340px;}
 
   /* PROGRESS */
   .progress-wrap{width:100%;max-width:520px;margin-bottom:16px;padding:0 2px;}
   .progress-labels{display:flex;justify-content:space-between;margin-bottom:7px;}
-  .progress-labels span{font-size:10px;font-weight:500;color:var(--text-soft);}
-  .progress-labels b{font-size:10px;font-weight:700;color:var(--gold);}
+  .progress-labels span{font-size:12px;font-weight:500;color:var(--text-soft);}
+  .progress-labels b{font-size:12px;font-weight:700;color:var(--gold);}
   .progress-track{width:100%;height:3px;background:rgba(201,144,58,0.18);border-radius:99px;overflow:hidden;}
   .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:99px;transition:width 0.5s cubic-bezier(.4,0,.2,1);}
 
@@ -77,12 +78,12 @@
   /* QUESTION */
   .q-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
   .q-eyebrow-line{width:22px;height:1.5px;background:var(--gold);}
-  .q-eyebrow span{font-size:8.5px;font-weight:600;color:var(--gold);letter-spacing:0.22em;text-transform:uppercase;}
-  .q-text{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.2;color:var(--text-dark);margin-bottom:18px;}
+  .q-eyebrow span{font-size:10px;font-weight:600;color:var(--gold);letter-spacing:0.22em;text-transform:uppercase;}
+  .q-text{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;line-height:1.2;color:var(--text-dark);margin-bottom:18px;}
 
   /* OPTIONS */
   .options{display:flex;flex-direction:column;gap:8px;}
-  .opt{display:flex;align-items:center;gap:12px;padding:12px 15px;background:rgba(255,255,255,0.55);border:1px solid var(--cream-border);border-radius:11px;cursor:pointer;transition:all 0.2s ease;font-size:13px;font-weight:400;color:var(--text-mid);text-align:left;width:100%;}
+  .opt{display:flex;align-items:center;gap:12px;padding:12px 15px;background:rgba(255,255,255,0.55);border:1px solid var(--cream-border);border-radius:11px;cursor:pointer;transition:all 0.2s ease;font-size:16px;font-weight:400;color:var(--text-mid);text-align:left;width:100%;}
   .opt:hover{background:rgba(255,243,216,0.9);border-color:var(--gold);color:var(--text-dark);}
   .opt.selected{background:rgba(255,243,216,0.9);border-color:var(--gold);color:var(--text-dark);}
   .opt-dot{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--cream-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;}
@@ -91,57 +92,57 @@
 
   /* NAV */
   .nav-row{display:flex;gap:10px;margin-top:20px;}
-  .btn-back{flex:0 0 auto;padding:12px 16px;background:transparent;border:1px solid var(--cream-border);border-radius:11px;color:var(--text-soft);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s ease;}
+  .btn-back{flex:0 0 auto;padding:12px 16px;background:transparent;border:1px solid var(--cream-border);border-radius:11px;color:var(--text-soft);font-family:'Montserrat',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s ease;}
   .btn-back:hover{border-color:var(--gold);color:var(--text-dark);}
-  .btn-next{flex:1;padding:13px 0;background:linear-gradient(135deg,var(--gold),var(--gold-light));border:none;border-radius:11px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#3A2200;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.2s ease;box-shadow:0 4px 16px rgba(201,144,58,0.28);}
+  .btn-next{flex:1;padding:13px 0;background:linear-gradient(135deg,var(--gold),var(--gold-light));border:none;border-radius:11px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#3A2200;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.2s ease;box-shadow:0 4px 16px rgba(201,144,58,0.28);}
   .btn-next:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,144,58,0.38);}
   .btn-next:disabled{opacity:0.32;cursor:not-allowed;transform:none;box-shadow:none;}
 
   /* FORM */
-  .form-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.2;color:var(--text-dark);margin-bottom:6px;}
+  .form-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;line-height:1.2;color:var(--text-dark);margin-bottom:6px;}
   .form-title em{color:var(--blue);font-style:italic;}
-  .form-sub{font-size:12px;color:var(--text-soft);line-height:1.6;margin-bottom:20px;}
+  .form-sub{font-size:15px;color:var(--text-soft);line-height:1.6;margin-bottom:20px;}
   .form-grid{display:flex;flex-direction:column;gap:11px;}
   .form-row{display:flex;gap:10px;}
   .field{display:flex;flex-direction:column;gap:5px;flex:1;}
-  .field label{font-size:8.5px;font-weight:700;color:var(--blue);letter-spacing:0.18em;text-transform:uppercase;}
-  .field input,.field select{padding:12px 13px;background:rgba(255,255,255,0.65);border:1px solid var(--cream-border);border-radius:10px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text-dark);outline:none;transition:border-color 0.2s ease;-webkit-appearance:none;}
+  .field label{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:0.18em;text-transform:uppercase;}
+  .field input,.field select{padding:12px 13px;background:rgba(255,255,255,0.65);border:1px solid var(--cream-border);border-radius:10px;font-family:'Montserrat',sans-serif;font-size:16px;color:var(--text-dark);outline:none;transition:border-color 0.2s ease;-webkit-appearance:none;}
   .field input::placeholder{color:rgba(106,80,48,0.38);}
   .field input:focus,.field select:focus{border-color:var(--blue);background:rgba(255,255,255,0.9);}
   .field select option{background:#FFF8EE;color:var(--text-dark);}
-  .btn-submit{width:100%;padding:15px 0;margin-top:6px;background:linear-gradient(135deg,var(--blue-deep),var(--blue),#1A6898);border:none;border-radius:11px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#FFFAF0;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 22px rgba(22,82,127,0.28);transition:all 0.2s ease;}
+  .btn-submit{width:100%;padding:15px 0;margin-top:6px;background:linear-gradient(135deg,var(--blue-deep),var(--blue),#1A6898);border:none;border-radius:11px;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#FFFAF0;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 22px rgba(22,82,127,0.28);transition:all 0.2s ease;}
   .btn-submit:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(22,82,127,0.38);}
-  .disclaimer{text-align:center;margin-top:10px;font-size:9px;color:var(--text-soft);letter-spacing:0.04em;line-height:1.6;}
+  .disclaimer{text-align:center;margin-top:10px;font-size:11px;color:var(--text-soft);letter-spacing:0.04em;line-height:1.6;}
 
   /* RESULT IMAGE */
   .result-img{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:18px;display:block;}
 
   /* RESULT */
-  .result-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:99px;font-size:9px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;margin-bottom:16px;}
+  .result-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;margin-bottom:16px;}
   .result-badge.gap{background:#FEF0E8;border:1px solid #F0B088;color:#8A3A18;}
   .result-badge.opportunity{background:#FFF8E8;border:1px solid #E0C060;color:#7A5010;}
   .result-badge.strong{background:#EAF5EC;border:1px solid #80C890;color:#1A5A28;}
   .result-badge.tax{background:#EAF2FB;border:1px solid #80B0D8;color:#164870;}
-  .result-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;line-height:1.1;color:var(--text-dark);margin-bottom:12px;}
+  .result-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;line-height:1.1;color:var(--text-dark);margin-bottom:12px;}
   .result-title em{color:var(--blue);font-style:italic;}
   .result-title em.gold{color:var(--gold);}
-  .result-desc{font-size:12.5px;color:var(--text-mid);line-height:1.75;margin-bottom:20px;}
+  .result-desc{font-size:15px;color:var(--text-mid);line-height:1.75;margin-bottom:20px;}
   .score-wrap{background:rgba(255,255,255,0.55);border:1px solid var(--cream-border);border-radius:12px;padding:13px 15px;margin-bottom:18px;}
   .score-labels{display:flex;justify-content:space-between;margin-bottom:8px;}
-  .score-labels span{font-size:10px;color:var(--text-soft);font-weight:500;}
-  .score-labels b{font-size:11px;color:var(--gold);font-weight:700;}
+  .score-labels span{font-size:12px;color:var(--text-soft);font-weight:500;}
+  .score-labels b{font-size:13px;color:var(--gold);font-weight:700;}
   .score-track{width:100%;height:6px;background:rgba(201,144,58,0.14);border-radius:99px;overflow:hidden;}
   .score-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width 1.2s cubic-bezier(.4,0,.2,1);}
   .result-points{display:flex;flex-direction:column;gap:9px;}
   .result-point{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:rgba(255,255,255,0.55);border:1px solid var(--cream-border);border-radius:11px;}
-  .result-point-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
-  .result-point-text b{display:block;font-size:12px;font-weight:600;color:var(--text-dark);margin-bottom:3px;}
-  .result-point-text span{font-size:11.5px;color:var(--text-mid);line-height:1.55;}
+  .result-point-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+  .result-point-text b{display:block;font-size:15px;font-weight:600;color:var(--text-dark);margin-bottom:3px;}
+  .result-point-text span{font-size:14px;color:var(--text-mid);line-height:1.55;}
 
   /* DIVIDER */
   .section-divider{width:100%;max-width:520px;display:flex;align-items:center;gap:12px;margin:24px 0;}
   .section-divider-line{flex:1;height:1px;background:var(--cream-border);}
-  .section-divider-text{font-size:8.5px;font-weight:700;color:var(--blue);letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap;}
+  .section-divider-text{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap;}
 
   /* CALENDLY */
   .calendly-card{width:100%;max-width:520px;background:var(--cream);border:1px solid var(--cream-border);border-radius:18px;overflow:hidden;position:relative;box-shadow:0 2px 20px rgba(22,82,127,0.08);}
@@ -149,15 +150,15 @@
   .calendly-header{padding:22px 22px 0;}
   .calendly-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
   .calendly-eyebrow-line{width:22px;height:1.5px;background:var(--blue);}
-  .calendly-eyebrow span{font-size:8.5px;font-weight:600;color:var(--blue);letter-spacing:0.22em;text-transform:uppercase;}
-  .calendly-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--text-dark);line-height:1.2;margin-bottom:7px;}
+  .calendly-eyebrow span{font-size:10px;font-weight:600;color:var(--blue);letter-spacing:0.22em;text-transform:uppercase;}
+  .calendly-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--text-dark);line-height:1.2;margin-bottom:7px;}
   .calendly-title em{color:var(--blue);font-style:italic;}
-  .calendly-sub{font-size:11.5px;color:var(--text-soft);line-height:1.6;margin-bottom:16px;}
+  .calendly-sub{font-size:14px;color:var(--text-soft);line-height:1.6;margin-bottom:16px;}
   .calendly-inline-widget{width:100%;min-height:700px;}
 
   /* FOOTER */
   .footer{width:100%;max-width:520px;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:28px;flex-wrap:wrap;}
-  .footer span{font-size:9px;color:var(--text-soft);letter-spacing:0.06em;}
+  .footer span{font-size:11px;color:var(--text-soft);letter-spacing:0.06em;}
   .footer-dot{width:3px;height:3px;border-radius:50%;background:var(--cream-border);}
   .hidden{display:none!important;}
 </style>
@@ -192,7 +193,7 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
     <div class="hero-warm"></div>
     <div class="hero-content">
       <div class="topbar">
-        <img class="logo-img" src="https://bohorquezadvisory.github.io/bohorquez-advisory/logo.png" alt="Bohorquez Advisory"/>
+        <div class="logo-text">Bohorquez <em>Advisory</em></div>
         <div class="free-badge">Free · 2 Min</div>
       </div>
       <div class="hero-eyebrow">Wealth Strategy Quiz</div>
@@ -202,7 +203,7 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
   </div>
 
   <!-- PROGRESS -->
-  <div class="progress-wrap" id="progressWrap">
+  <div class="progress-wrap hidden" id="progressWrap">
     <div class="progress-labels">
       <span>Your Financial Profile</span>
       <b id="progressLabel">1 of 9</b>
@@ -212,8 +213,21 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
     </div>
   </div>
 
+  <!-- ZIP ENTRY -->
+  <div class="card" id="zipCard">
+    <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Start Here</span></div>
+    <div class="q-text">What's your ZIP code?</div>
+    <p class="form-sub" style="margin-top:-8px;">We'll show you the options available in your area. Takes about 2 minutes.</p>
+    <div class="field">
+      <label>ZIP Code</label>
+      <input type="text" id="zipInput" placeholder="e.g. 33160" inputmode="numeric" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
+    </div>
+    <button class="btn-next" style="width:100%;margin-top:16px;" onclick="startQuiz()">See My Options →</button>
+    <p class="disclaimer" style="margin-top:12px;">No spam, no pressure — just what's actually available near you.</p>
+  </div>
+
   <!-- QUIZ CARD -->
-  <div class="card" id="quizCard">
+  <div class="card hidden" id="quizCard">
     <div class="q-wrap" id="q1">
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 1</span></div>
       <div class="q-text">Where is most of your money right now?</div>
@@ -273,10 +287,14 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
       <div class="q-eyebrow"><div class="q-eyebrow-line"></div><span>Question 6</span></div>
       <div class="q-text">If something happened to you tomorrow, who depends on you financially?</div>
       <div class="options">
-        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>My spouse / partner</button>
-        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>My children</button>
-        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>My parents or family</button>
-        <button class="opt" onclick="selectOpt(this,'q6')"><div class="opt-dot"></div>No one depends on me yet</button>
+        <button class="opt" onclick="selectOpt(this,'q6');showProtectName('spouse')"><div class="opt-dot"></div>My spouse / partner</button>
+        <button class="opt" onclick="selectOpt(this,'q6');showProtectName('children')"><div class="opt-dot"></div>My children</button>
+        <button class="opt" onclick="selectOpt(this,'q6');showProtectName('family')"><div class="opt-dot"></div>My parents or family</button>
+        <button class="opt" onclick="selectOpt(this,'q6');showProtectName(null)"><div class="opt-dot"></div>No one depends on me yet</button>
+      </div>
+      <div class="field hidden" id="protectNameField" style="margin-top:14px;">
+        <label id="protectNameLabel">Their name(s)</label>
+        <input type="text" id="protectName" placeholder="e.g. Maria, or Maria & Jayden" />
       </div>
       <div class="nav-row"><button class="btn-back" onclick="goBack(5)">← Back</button><button class="btn-next" id="next6" onclick="goNext(7)" disabled>Continue →</button></div>
     </div>
@@ -510,12 +528,40 @@ function showResult(){
   }
 }
 
+function startQuiz(){
+  var zip=document.getElementById('zipInput').value.trim();
+  if(zip.length!==5){
+    alert('Please enter a valid 5-digit ZIP code.');
+    return;
+  }
+  answers.zip=zip;
+  document.getElementById('zipCard').classList.add('hidden');
+  document.getElementById('progressWrap').classList.remove('hidden');
+  document.getElementById('quizCard').classList.remove('hidden');
+}
+
 function selectOpt(el,qid){
   el.parentElement.querySelectorAll('.opt').forEach(function(o){o.classList.remove('selected');});
   el.classList.add('selected');
   answers[qid]=el.textContent.trim();
   var nb=document.getElementById('next'+qid.replace('q',''));
   if(nb) nb.disabled=false;
+}
+
+function showProtectName(type){
+  var field=document.getElementById('protectNameField');
+  var label=document.getElementById('protectNameLabel');
+  var input=document.getElementById('protectName');
+  if(type===null){
+    field.classList.add('hidden');
+    answers.q6_protect_name='';
+    input.value='';
+    return;
+  }
+  field.classList.remove('hidden');
+  if(type==='spouse'){ label.textContent="Your spouse/partner's name"; input.placeholder='e.g. Maria'; }
+  else if(type==='children'){ label.textContent="Your children's name(s)"; input.placeholder='e.g. Jayden & Sofia'; }
+  else if(type==='family'){ label.textContent="Their name(s)"; input.placeholder='e.g. Mom & Dad'; }
 }
 
 function goNext(n){
@@ -552,6 +598,7 @@ function submitForm(){
   var age=document.getElementById('age').value.trim();
   var city=document.getElementById('city').value.trim();
   var state=document.getElementById('state').value;
+  var protectName=document.getElementById('protectName').value.trim();
   if(!fname||!lname||!email||!phone||!age||!city||!state){
     alert('Please fill out all fields to get your free strategy.');return;
   }
@@ -561,7 +608,7 @@ function submitForm(){
     body:JSON.stringify({fname:fname,lname:lname,email:email,phone:phone,age:age,city:city,state:state,
       q1:answers.q1||'',q2:answers.q2||'',q3:answers.q3||'',q4:answers.q4||'',
       q5:answers.q5||'',q6:answers.q6||'',q7:answers.q7||'',q8:answers.q8||'',
-      q9_health:answers.q9||''})
+      q9_health:answers.q9||'',q6_protect_name:protectName,zip:answers.zip||''})
   }).catch(function(err){console.log('err:',err);});
   document.getElementById('formCard').classList.add('hidden');
   showResult();
