@@ -576,11 +576,20 @@ function resetCard(){
 // Meta Pixel: listen for Calendly's postMessage events to catch an actual booking,
 // since the calendar itself lives in a cross-domain iframe we can't touch directly.
 window.addEventListener('message', function(e){
-  if(e.data && typeof e.data.event === 'string' && e.data.event.indexOf('calendly') === 0){
-    if(e.data.event === 'calendly.event_scheduled'){
-      if(typeof fbq!=='undefined'){
-        fbq('track','Schedule',{content_name:'Strategy Call Booked'});
-      }
+  if(!e.origin || e.origin.indexOf('calendly.com') === -1) return;
+
+  var data = e.data;
+  // Calendly sometimes sends this as a JSON string instead of an object — handle both.
+  if(typeof data === 'string'){
+    try{ data = JSON.parse(data); }catch(err){ return; }
+  }
+  if(!data || typeof data.event !== 'string' || data.event.indexOf('calendly') !== 0) return;
+
+  console.log('[Calendly event received]', data.event); // TEMP: remove once Schedule is confirmed firing
+
+  if(data.event === 'calendly.event_scheduled'){
+    if(typeof fbq!=='undefined'){
+      fbq('track','Schedule',{content_name:'Strategy Call Booked'});
     }
   }
 });
