@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1102395292225111');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
- <head>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bohorquez Advisory – Financial Quiz</title>
@@ -195,7 +178,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
- </head>
+</head>
 <body>
 <div class="bg-page"></div>
 <div class="bg-page-overlay"></div>
@@ -356,7 +339,7 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
         </select>
       </div>
       <button class="btn-submit" onclick="submitForm()">Get My Free Strategy →</button>
-      <p class="disclaimer">By submitting, you agree to be contacted by a licensed advisor. Your info is private and never sold.</p>
+      <p class="disclaimer">By submitting, you agree to be contacted by a licensed advisor by phone, text, or email regarding insurance and financial products. Your info is private and never sold.</p>
     </div>
   </div>
 
@@ -509,6 +492,11 @@ function showResult(){
   document.getElementById('calendlyCard').classList.remove('hidden');
   resetCard();
   window.scrollTo({top:0,behavior:'smooth'});
+
+  // Meta Pixel: fire when the visitor sees their quiz result (a completed lead-quality signal)
+  if(typeof fbq!=='undefined'){
+    fbq('track','CompleteRegistration',{content_name:'Financial Quiz',content_category:r.type});
+  }
 }
 
 function selectOpt(el,qid){
@@ -572,6 +560,18 @@ function resetCard(){
     c.style.animation='none';c.offsetHeight;c.style.animation='';
   });
 }
+
+// Meta Pixel: listen for Calendly's postMessage events to catch an actual booking,
+// since the calendar itself lives in a cross-domain iframe we can't touch directly.
+window.addEventListener('message', function(e){
+  if(e.data && typeof e.data.event === 'string' && e.data.event.indexOf('calendly') === 0){
+    if(e.data.event === 'calendly.event_scheduled'){
+      if(typeof fbq!=='undefined'){
+        fbq('track','Schedule',{content_name:'Strategy Call Booked'});
+      }
+    }
+  }
+});
 </script>
 </body>
 </html>
