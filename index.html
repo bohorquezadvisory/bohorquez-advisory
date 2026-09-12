@@ -153,7 +153,7 @@
   .calendly-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--text-dark);line-height:1.2;margin-bottom:7px;}
   .calendly-title em{color:var(--blue);font-style:italic;}
   .calendly-sub{font-size:11.5px;color:var(--text-soft);line-height:1.6;margin-bottom:16px;}
-  .calendly-embed{width:100%;min-height:700px;border:none;}
+  .calendly-inline-widget{width:100%;min-height:700px;}
 
   /* FOOTER */
   .footer{width:100%;max-width:520px;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:28px;flex-wrap:wrap;}
@@ -382,13 +382,11 @@ src="https://www.facebook.com/tr?id=1102395292225111&ev=PageView&noscript=1"
       <div class="calendly-title">Book Your Free<br><em>Strategy Session</em></div>
       <p class="calendly-sub">Pick a time that works for you. Your advisor will review your results and walk you through a custom plan — no pressure, no commitment.</p>
     </div>
-    <iframe class="calendly-embed"
-      src="https://calendly.com/bohorquez-advisory/30min?hide_gdpr_banner=1&background_color=fff8ee&text_color=2a1a08&primary_color=16527f"
-      frameborder="0" scrolling="yes" allowtransparency="true">
-    </iframe>
+    <div class="calendly-inline-widget"
+      data-url="https://calendly.com/bohorquez-advisory/30min?hide_gdpr_banner=1&background_color=fff8ee&text_color=2a1a08&primary_color=16527f">
+    </div>
   </div>
-
-  <!-- FOOTER -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <div class="footer">
     <span>bohorquezadvisory.com</span>
     <div class="footer-dot"></div>
@@ -573,12 +571,10 @@ function resetCard(){
   });
 }
 
-// Meta Pixel: listen for Calendly's postMessage events to catch an actual booking,
-// since the calendar itself lives in a cross-domain iframe we can't touch directly.
+// Meta Pixel: catch a real Calendly booking via their official postMessage event.
+// This only works with the official inline widget (widget.js + calendly-inline-widget div) —
+// a raw <iframe src="..."> never sends these events, which is what we confirmed by testing.
 window.addEventListener('message', function(e){
-  // TEMP DEBUG: log every single postMessage this page receives, no filtering yet.
-  console.log('[RAW MESSAGE]', 'origin:', e.origin, 'data:', e.data);
-
   if(!e.origin || e.origin.indexOf('calendly.com') === -1) return;
 
   var data = e.data;
@@ -586,8 +582,6 @@ window.addEventListener('message', function(e){
     try{ data = JSON.parse(data); }catch(err){ return; }
   }
   if(!data || typeof data.event !== 'string' || data.event.indexOf('calendly') !== 0) return;
-
-  console.log('[Calendly event received]', data.event);
 
   if(data.event === 'calendly.event_scheduled'){
     if(typeof fbq!=='undefined'){
